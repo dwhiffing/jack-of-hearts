@@ -5,11 +5,12 @@ import { AUTO, Game } from 'phaser'
 
 const config: Phaser.Types.Core.GameConfig = {
   type: AUTO,
-  width: 1024,
-  height: 768,
+  width: 800,
+  height: 600,
   parent: 'game-container',
   backgroundColor: '#028af8',
-  physics: { default: 'arcade' },
+  physics: { default: 'arcade', arcade: { debug: true } },
+  pixelArt: true,
   scene: [Boot, Menu, MainGame],
 }
 
