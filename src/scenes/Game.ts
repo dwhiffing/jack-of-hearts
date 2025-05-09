@@ -10,6 +10,7 @@ export class Game extends Scene {
   public enemies!: Physics.Arcade.Group
   public camera!: Cameras.Scene2D.Camera
   public hud!: Hud
+  public emitter!: Phaser.GameObjects.Particles.ParticleEmitter
 
   constructor() {
     super('Game')
@@ -27,6 +28,18 @@ export class Game extends Scene {
     })
 
     this.hud = new Hud(this)
+
+    this.emitter = this.add
+      .particles(0, 0, 'sheet', {
+        x: w / 2,
+        y: h / 2,
+        lifespan: 400,
+        speed: 120,
+        frame: 'ui_heart_full.png',
+        alpha: { start: 1, end: 0 },
+        angle: { start: 0, end: 360, steps: 10 },
+      })
+      .stop()
 
     // @ts-ignore
     this.physics.add.overlap(this.enemies, this.core, this.hitCallback)

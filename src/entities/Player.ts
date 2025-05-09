@@ -108,7 +108,7 @@ export class Player extends Physics.Arcade.Sprite {
         }
       })
 
-      this.sceneRef.time.delayedCall(150, () => {
+      this.sceneRef.time.delayedCall(350, () => {
         this._canAttack = true
         this._attackGraphics?.clear()
       })

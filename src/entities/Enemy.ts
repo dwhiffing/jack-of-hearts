@@ -18,6 +18,11 @@ export class Enemy extends EntityBase {
     this.body.setEnable(true)
   }
 
+  public destroy(fromScene?: boolean): void {
+    this.sceneRef.emitter.explode(10, this.x, this.y)
+    super.destroy(fromScene)
+  }
+
   public takeDamage(amount: number): void {
     super.takeDamage(amount)
     if (!this.active) return
