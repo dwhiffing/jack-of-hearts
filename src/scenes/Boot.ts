@@ -17,9 +17,22 @@ export class Boot extends Scene {
     this.load.setPath('assets')
     this.load.image('logo', 'logo.png')
     this.load.image('background', 'bg.png')
+    this.load.multiatlas('sheet', 'sheet.json')
   }
 
   create() {
+    const frameNames = this.anims.generateFrameNames('sheet', {
+      start: 0,
+      end: 3,
+      prefix: 'knight_m_run_anim_f',
+      suffix: '.png',
+    })
+    this.anims.create({
+      key: 'player',
+      frames: frameNames,
+      frameRate: 10,
+      repeat: -1,
+    })
     this.scene.start('Menu')
   }
 }

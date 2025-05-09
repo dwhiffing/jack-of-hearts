@@ -155,6 +155,7 @@ export class Game extends Scene {
       SCREEN_HEIGHT / 2 + 120,
       'playerTexture',
     ) as GameObjectWithHealth
+    this.player.play('player')
     this.player.setCircle(PLAYER_SIZE) // Circular physics body
     this.player.setCollideWorldBounds(true) // Player cannot leave screen boundaries
     this.player.setData('health', Infinity) // Player doesn't take damage in this version, but good practice
