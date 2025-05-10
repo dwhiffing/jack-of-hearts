@@ -6,6 +6,9 @@ import { Shadow } from './Shadow'
 import { Slash } from './Slash'
 
 const PLAYER_SPEED = 220
+const DASH_DISTANCE = 150
+const DASH_DURATION = 200
+const DASH_COOLDOWN = 700
 
 export class Player extends Physics.Arcade.Sprite {
   protected sceneRef: Game
@@ -20,7 +23,10 @@ export class Player extends Physics.Arcade.Sprite {
   private keyA: Input.Keyboard.Key
   private keyS: Input.Keyboard.Key
   private keyD: Input.Keyboard.Key
-  private keySpace: Input.Keyboard.Key
+  private attackKey: Input.Keyboard.Key
+  private dashKey: Input.Keyboard.Key
+  private isDashing: boolean = false
+  private canDash: boolean = true
 
   constructor(scene: Game, x: number, y: number) {
     super(scene, x, y, 'sheet')
@@ -43,26 +49,69 @@ export class Player extends Physics.Arcade.Sprite {
     if (!scene.input || !scene.input.keyboard) {
       throw new Error('Keyboard input system is not available.')
     }
-    this.keyW = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.W)
-    this.keyA = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.A)
-    this.keyS = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.S)
-    this.keyD = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.D)
-    this.keySpace = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.SPACE)
+    this.keyW = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.UP)
+    this.keyA = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT)
+    this.keyS = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.DOWN)
+    this.keyD = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)
+    this.attackKey = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.Z)
+    this.dashKey = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.X)
   }
 
   public update(enemies: Enemy[]): void {
-    this.handleMovement()
-    this.handleAttack(enemies)
-    this.slashEffect.setDepth(this.depth + 1)
+    this.handlePlayerInput(enemies)
+    this.updateAttachedItemsAndDepth()
   }
 
-  private handleMovement(): void {
+  private handlePlayerInput(enemies: Enemy[]): void {
     if (!this.body) return
 
-    if (this.carriedCore) {
-      this.carriedCore.setPosition(this.x, this.y - 30)
-      this.carriedCore.setDepth(this.y + 20)
+    if (this.isDashing) {
+      this.play('player-walk', true)
+      return
     }
+
+    if (
+      Input.Keyboard.JustDown(this.dashKey) &&
+      this.canDash &&
+      this._canAttack
+    ) {
+      this.startDash()
+      return
+    }
+
+    this.handleWASDMovement()
+    this.handleAttack(enemies)
+  }
+
+  private startDash(): void {
+    if (!this.body) return
+
+    this.isDashing = true
+    this.canDash = false
+
+    const dashDirection = this._lastAngle.clone()
+    if (dashDirection.lengthSq() === 0) {
+      dashDirection.x = this.flipX ? -1 : 1
+      dashDirection.y = 0
+    }
+    dashDirection.normalize()
+
+    const dashSpeed = DASH_DISTANCE / (DASH_DURATION / 1000)
+    this.setVelocity(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed)
+
+    if (dashDirection.x !== 0) this.setFlipX(dashDirection.x < 0)
+    this.play('player-walk', true)
+    this.scene.time.delayedCall(DASH_DURATION, this.stopDash)
+    this.scene.time.delayedCall(DASH_COOLDOWN, () => (this.canDash = true))
+  }
+
+  private stopDash = (): void => {
+    this.isDashing = false
+    if (this.body && this.active) this.setVelocity(0, 0)
+  }
+
+  private handleWASDMovement(): void {
+    if (!this.body || this.isDashing) return
 
     this.setVelocity(0)
     const currentMovement: PhaserMath.Vector2 = new PhaserMath.Vector2(0, 0)
@@ -78,20 +127,35 @@ export class Player extends Physics.Arcade.Sprite {
 
       const speed = this.carriedCore ? this.moveSpeed / 4 : this.moveSpeed
       this.setVelocity(currentMovement.x * speed, currentMovement.y * speed)
-      this.shadow.setPosition(this.x, this.y + 44)
       this._lastAngle = currentMovement.clone()
-      this.setFlipX(currentMovement.x < 0)
+      if (currentMovement.x !== 0) this.setFlipX(currentMovement.x < 0)
+
       this.play('player-walk', true)
     } else {
       this.play('player-idle', true)
     }
+  }
 
+  private updateAttachedItemsAndDepth(): void {
+    if (this.carriedCore) {
+      this.carriedCore.setPosition(this.x, this.y - 30)
+      this.carriedCore.setDepth(this.y + 20)
+    }
+
+    this.shadow.setPosition(this.x, this.y + 44)
     this.setDepth(this.y)
     this.shadow.setDepth(this.depth - 0.1)
+    this.slashEffect.setDepth(this.depth + 1)
   }
 
   private handleAttack(enemies: Enemy[]): void {
-    if (!Input.Keyboard.JustDown(this.keySpace) || !this._canAttack) return
+    if (
+      !Input.Keyboard.JustDown(this.attackKey) ||
+      !this._canAttack ||
+      this.isDashing
+    ) {
+      return
+    }
 
     if (
       !this.carriedCore &&
@@ -114,9 +178,10 @@ export class Player extends Physics.Arcade.Sprite {
     this.moveSpeed = 0
     const attackPos = new PhaserMath.Vector2(this.x, this.y)
     const angle =
-      this._lastAngle && (this._lastAngle.x !== 0 || this._lastAngle.y !== 0)
+      this._lastAngle.x !== 0 || this._lastAngle.y !== 0
         ? this._lastAngle.clone()
         : new PhaserMath.Vector2(this.flipX ? -1 : 1, 0)
+    angle.normalize()
 
     this.slashEffect.performAttack(attackPos, angle)
 

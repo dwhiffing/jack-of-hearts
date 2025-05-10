@@ -9,13 +9,6 @@ export class Core extends EntityBase {
     this.setPosition(x, y)
   }
 
-  public takeDamage(amount: number): void {
-    super.takeDamage(amount)
-    this.sceneRef.hud.coreHealthText?.setText(
-      `Core Health: ${this.getHealth()}`,
-    )
-  }
-
   public setPosition(x: number, y: number) {
     super.setPosition(x, y)
     this.healthBar?.setPosition(x - 20, y - 35)
