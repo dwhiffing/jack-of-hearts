@@ -54,19 +54,15 @@ export class Slash {
     this.slashSprite.setAngle(angleInDegrees).setScale(f)
     const offset = 10 + range + f * 20
 
-    this.debugGraphics.arc(
-      playerPosition.x + dir.x * offset,
-      playerPosition.y + SLASH_Y_OFFSET + dir.y * offset,
-      radius,
-      0,
-      360,
-    )
+    const x = playerPosition.x + dir.x * offset
+    const y = playerPosition.y + SLASH_Y_OFFSET + dir.y * offset
+    this.debugGraphics.arc(x, y, 5 + radius, 0, 360)
     this.debugGraphics.fillPath()
     this.debugGraphics.setDepth(ATTACK_SPRITE_DEPTH - 1)
   }
 
   public isTargetHit(
-    targetPosition: PhaserMath.Vector2,
+    target: Phaser.Physics.Arcade.Body,
     attackerPosition: PhaserMath.Vector2,
     attackDirection: PhaserMath.Vector2,
     radius = 60,
@@ -74,12 +70,11 @@ export class Slash {
   ): boolean {
     const f = radius / 40
     const offset = 10 + range + f * 20
-    const circle = new Phaser.Geom.Circle(
-      attackerPosition.x + attackDirection.x * offset,
-      attackerPosition.y + SLASH_Y_OFFSET + attackDirection.y * offset,
-      radius,
-    )
-    return Phaser.Geom.Circle.ContainsPoint(circle, targetPosition)
+    const x = attackerPosition.x + attackDirection.x * offset
+    const y = attackerPosition.y + SLASH_Y_OFFSET + attackDirection.y * offset
+
+    // @ts-ignore
+    return this.sceneRef.physics.overlapCirc(x, y, 5 + radius).includes(target)
   }
 
   public cleanup(): void {

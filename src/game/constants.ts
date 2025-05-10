@@ -22,7 +22,7 @@ export const playerStats: PlayerStats = {
   speed: 220,
   damage: 1,
   attackRate: 240,
-  attackRadius: 30,
+  attackRadius: 60,
   dashDistance: 150,
   dashDuration: 200,
   dashCooldown: 700,

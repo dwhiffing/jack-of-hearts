@@ -211,8 +211,7 @@ export class Player extends Physics.Arcade.Sprite {
     enemies.forEach((enemy) => {
       if (!enemy.active || !enemy.body || !enemy.takeDamage) return
 
-      const enemyPos = new PhaserMath.Vector2(enemy.x, enemy.y)
-      if (this.slashEffect.isTargetHit(enemyPos, attackPos, angle, rad)) {
+      if (this.slashEffect.isTargetHit(enemy.body, attackPos, angle, rad)) {
         enemy.takeDamage(this.stats.damage)
       }
     })
