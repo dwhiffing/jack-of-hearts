@@ -12,7 +12,7 @@ export class Enemy extends EntityBase {
 
   constructor(scene: Game, x: number, y: number) {
     super(scene, x, y)
-    this.setSize(8, 8).setScale(3).setCollideWorldBounds(false)
+    this.setScale(3).setCollideWorldBounds(false)
   }
 
   public spawn(
@@ -25,12 +25,12 @@ export class Enemy extends EntityBase {
     this.setPosition(x, y).setActive(true).setVisible(true)
 
     this.type = type
-    const { offsetX, offsetY } = this.spriteType
+    const { offsetX, offsetY, sizeX, sizeY } = this.spriteType
     this.moveMulti = 1
     this.isDying = false
     this.alpha = 1
     this.setMaxHealth(this.stats.health)
-    this.play(`${type}-walk`).setOffset(offsetX, offsetY)
+    this.play(`${type}-walk`).setOffset(offsetX, offsetY).setSize(sizeX, sizeY)
     this.body.setEnable(true)
   }
 

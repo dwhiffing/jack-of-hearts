@@ -31,6 +31,8 @@ export type EnemyType = {
   key: string
   offsetX: number
   offsetY: number
+  sizeX: number
+  sizeY: number
   offsetHealth: number
   offsetShadow: number
 }
@@ -89,6 +91,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 24,
     offsetHealth: -40,
     offsetShadow: 55,
+    sizeX: 8,
+    sizeY: 8,
   },
   chort: {
     key: 'chort',
@@ -96,6 +100,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 13,
     offsetHealth: -30,
     offsetShadow: 36,
+    sizeX: 8,
+    sizeY: 8,
   },
   orc: {
     key: 'orc',
@@ -103,6 +109,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 11,
     offsetHealth: -30,
     offsetShadow: 35,
+    sizeX: 8,
+    sizeY: 8,
   },
   ogre: {
     key: 'ogre',
@@ -110,6 +118,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 24,
     offsetHealth: -40,
     offsetShadow: 55,
+    sizeX: 8,
+    sizeY: 8,
   },
   goblin: {
     key: 'goblin',
@@ -117,6 +127,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 8,
     offsetHealth: -35,
     offsetShadow: 25,
+    sizeX: 8,
+    sizeY: 8,
   },
   imp: {
     key: 'imp',
@@ -124,6 +136,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 8,
     offsetHealth: -35,
     offsetShadow: 25,
+    sizeX: 8,
+    sizeY: 8,
   },
   lizard: {
     key: 'lizard',
@@ -131,6 +145,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 18,
     offsetHealth: -28,
     offsetShadow: 42,
+    sizeX: 8,
+    sizeY: 8,
   },
   skele: {
     key: 'skele',
@@ -138,6 +154,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 6,
     offsetHealth: -35,
     offsetShadow: 25,
+    sizeX: 8,
+    sizeY: 8,
   },
   wogol: {
     key: 'wogol',
@@ -145,6 +163,8 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
     offsetY: 13,
     offsetHealth: -25,
     offsetShadow: 35,
+    sizeX: 8,
+    sizeY: 8,
   },
 }
 
