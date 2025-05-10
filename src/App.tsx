@@ -2,6 +2,7 @@ import { useLayoutEffect, useRef, useState } from 'react'
 import { CoreModal } from './CoreModal'
 import StartGame from './game/main'
 import { Game } from 'phaser'
+import { CORE_HALVES } from './game/constants'
 
 function App() {
   const [open, setOpen] = useState(false)
@@ -24,7 +25,10 @@ function App() {
 
   const onClose = () => {
     setOpen(false)
-    game.current?.events.emit('spawn-core')
+    game.current?.events.emit('spawn-core', {
+      left: CORE_HALVES.green,
+      right: CORE_HALVES.blue,
+    })
     setTimeout(() => {
       game.current?.events.emit('start-level')
     }, 750)

@@ -5,7 +5,7 @@
 			"format": "RGBA8888",
 			"size": {
 				"w": 127,
-				"h": 1189
+				"h": 1188
 			},
 			"scale": 1,
 			"frames": [
@@ -322,6 +322,48 @@
 						"y": 344,
 						"w": 24,
 						"h": 30
+					}
+				},
+				{
+					"filename": "ui_heart_half_right.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 13,
+						"h": 12
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 1,
+						"w": 7,
+						"h": 10
+					},
+					"frame": {
+						"x": 116,
+						"y": 344,
+						"w": 7,
+						"h": 10
+					}
+				},
+				{
+					"filename": "ui_heart_half_left.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 13,
+						"h": 12
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 1,
+						"w": 7,
+						"h": 9
+					},
+					"frame": {
+						"x": 116,
+						"y": 356,
+						"w": 7,
+						"h": 9
 					}
 				},
 				{
@@ -1858,27 +1900,6 @@
 					}
 				},
 				{
-					"filename": "ui_heart_half.png",
-					"rotated": false,
-					"trimmed": false,
-					"sourceSize": {
-						"w": 13,
-						"h": 12
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 13,
-						"h": 12
-					},
-					"frame": {
-						"x": 108,
-						"y": 1120,
-						"w": 13,
-						"h": 12
-					}
-				},
-				{
 					"filename": "wogol_run_anim_f2.png",
 					"rotated": false,
 					"trimmed": true,
@@ -1893,8 +1914,8 @@
 						"h": 18
 					},
 					"frame": {
-						"x": 46,
-						"y": 1126,
+						"x": 108,
+						"y": 1120,
 						"w": 12,
 						"h": 18
 					}
@@ -1914,8 +1935,8 @@
 						"h": 17
 					},
 					"frame": {
-						"x": 31,
-						"y": 1131,
+						"x": 93,
+						"y": 1134,
 						"w": 12,
 						"h": 17
 					}
@@ -1935,8 +1956,8 @@
 						"h": 17
 					},
 					"frame": {
-						"x": 60,
-						"y": 1126,
+						"x": 107,
+						"y": 1140,
 						"w": 12,
 						"h": 17
 					}
@@ -1957,9 +1978,51 @@
 					},
 					"frame": {
 						"x": 1,
-						"y": 1134,
+						"y": 1159,
 						"w": 12,
 						"h": 16
+					}
+				},
+				{
+					"filename": "goblin_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 6,
+						"w": 12,
+						"h": 10
+					},
+					"frame": {
+						"x": 1,
+						"y": 1177,
+						"w": 12,
+						"h": 10
+					}
+				},
+				{
+					"filename": "goblin_idle_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 6,
+						"w": 12,
+						"h": 10
+					},
+					"frame": {
+						"x": 1,
+						"y": 1177,
+						"w": 12,
+						"h": 10
 					}
 				},
 				{
@@ -1977,8 +2040,8 @@
 						"h": 16
 					},
 					"frame": {
-						"x": 15,
-						"y": 1134,
+						"x": 1,
+						"y": 1136,
 						"w": 12,
 						"h": 16
 					}
@@ -1998,10 +2061,31 @@
 						"h": 16
 					},
 					"frame": {
-						"x": 1,
-						"y": 1152,
+						"x": 15,
+						"y": 1159,
 						"w": 12,
 						"h": 16
+					}
+				},
+				{
+					"filename": "goblin_idle_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 7,
+						"w": 12,
+						"h": 9
+					},
+					"frame": {
+						"x": 15,
+						"y": 1177,
+						"w": 12,
+						"h": 9
 					}
 				},
 				{
@@ -2019,8 +2103,8 @@
 						"h": 15
 					},
 					"frame": {
-						"x": 1,
-						"y": 1170,
+						"x": 15,
+						"y": 1136,
 						"w": 12,
 						"h": 15
 					}
@@ -2040,10 +2124,31 @@
 						"h": 15
 					},
 					"frame": {
-						"x": 93,
-						"y": 1134,
+						"x": 29,
+						"y": 1159,
 						"w": 12,
 						"h": 15
+					}
+				},
+				{
+					"filename": "goblin_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 12,
+						"h": 11
+					},
+					"frame": {
+						"x": 29,
+						"y": 1176,
+						"w": 12,
+						"h": 11
 					}
 				},
 				{
@@ -2061,7 +2166,7 @@
 						"h": 15
 					},
 					"frame": {
-						"x": 74,
+						"x": 29,
 						"y": 1136,
 						"w": 12,
 						"h": 15
@@ -2082,10 +2187,31 @@
 						"h": 15
 					},
 					"frame": {
-						"x": 60,
-						"y": 1145,
+						"x": 43,
+						"y": 1159,
 						"w": 12,
 						"h": 15
+					}
+				},
+				{
+					"filename": "goblin_run_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 12,
+						"h": 11
+					},
+					"frame": {
+						"x": 43,
+						"y": 1176,
+						"w": 12,
+						"h": 11
 					}
 				},
 				{
@@ -2103,8 +2229,8 @@
 						"h": 14
 					},
 					"frame": {
-						"x": 45,
-						"y": 1146,
+						"x": 43,
+						"y": 1136,
 						"w": 12,
 						"h": 14
 					}
@@ -2124,8 +2250,8 @@
 						"h": 14
 					},
 					"frame": {
-						"x": 29,
-						"y": 1150,
+						"x": 57,
+						"y": 1126,
 						"w": 12,
 						"h": 14
 					}
@@ -2145,8 +2271,8 @@
 						"h": 14
 					},
 					"frame": {
-						"x": 15,
-						"y": 1152,
+						"x": 71,
+						"y": 1136,
 						"w": 12,
 						"h": 14
 					}
@@ -2166,8 +2292,8 @@
 						"h": 14
 					},
 					"frame": {
-						"x": 15,
-						"y": 1168,
+						"x": 57,
+						"y": 1142,
 						"w": 12,
 						"h": 14
 					}
@@ -2187,8 +2313,8 @@
 						"h": 14
 					},
 					"frame": {
-						"x": 107,
-						"y": 1134,
+						"x": 71,
+						"y": 1152,
 						"w": 12,
 						"h": 14
 					}
@@ -2208,8 +2334,8 @@
 						"h": 13
 					},
 					"frame": {
-						"x": 107,
-						"y": 1150,
+						"x": 57,
+						"y": 1158,
 						"w": 12,
 						"h": 13
 					}
@@ -2229,8 +2355,8 @@
 						"h": 13
 					},
 					"frame": {
-						"x": 88,
-						"y": 1151,
+						"x": 57,
+						"y": 1173,
 						"w": 12,
 						"h": 13
 					}
@@ -2250,8 +2376,8 @@
 						"h": 13
 					},
 					"frame": {
-						"x": 74,
-						"y": 1153,
+						"x": 71,
+						"y": 1168,
 						"w": 12,
 						"h": 13
 					}
@@ -2271,8 +2397,8 @@
 						"h": 13
 					},
 					"frame": {
-						"x": 29,
-						"y": 1168,
+						"x": 85,
+						"y": 1153,
 						"w": 12,
 						"h": 13
 					}
@@ -2292,7 +2418,7 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 43,
+						"x": 85,
 						"y": 1168,
 						"w": 12,
 						"h": 12
@@ -2313,8 +2439,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 57,
-						"y": 1162,
+						"x": 99,
+						"y": 1159,
 						"w": 12,
 						"h": 12
 					}
@@ -2334,8 +2460,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 57,
-						"y": 1176,
+						"x": 113,
+						"y": 1159,
 						"w": 12,
 						"h": 12
 					}
@@ -2355,8 +2481,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 57,
-						"y": 1176,
+						"x": 113,
+						"y": 1159,
 						"w": 12,
 						"h": 12
 					}
@@ -2376,73 +2502,10 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 71,
-						"y": 1168,
+						"x": 99,
+						"y": 1173,
 						"w": 12,
 						"h": 12
-					}
-				},
-				{
-					"filename": "goblin_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 12,
-						"h": 11
-					},
-					"frame": {
-						"x": 85,
-						"y": 1168,
-						"w": 12,
-						"h": 11
-					}
-				},
-				{
-					"filename": "goblin_run_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 12,
-						"h": 11
-					},
-					"frame": {
-						"x": 99,
-						"y": 1166,
-						"w": 12,
-						"h": 11
-					}
-				},
-				{
-					"filename": "goblin_idle_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 7,
-						"w": 12,
-						"h": 9
-					},
-					"frame": {
-						"x": 99,
-						"y": 1179,
-						"w": 12,
-						"h": 9
 					}
 				},
 				{
@@ -2461,51 +2524,9 @@
 					},
 					"frame": {
 						"x": 113,
-						"y": 1165,
+						"y": 1173,
 						"w": 12,
 						"h": 11
-					}
-				},
-				{
-					"filename": "goblin_idle_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 6,
-						"w": 12,
-						"h": 10
-					},
-					"frame": {
-						"x": 113,
-						"y": 1178,
-						"w": 12,
-						"h": 10
-					}
-				},
-				{
-					"filename": "goblin_idle_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 6,
-						"w": 12,
-						"h": 10
-					},
-					"frame": {
-						"x": 113,
-						"y": 1178,
-						"w": 12,
-						"h": 10
 					}
 				}
 			]
@@ -2514,6 +2535,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:a2776416ac7534891c6165961dd76bab:5b5d6a65fb49a9ad63d57e9092009342:9c44ecd7e9a522007eaff2949095bc1d$"
+		"smartupdate": "$TexturePacker:SmartUpdate:d3dcb70c109fa86e3a17c970bbfceec7:e81fc71c6ca46706d2d22fc8a418d80f:9c44ecd7e9a522007eaff2949095bc1d$"
 	}
 }

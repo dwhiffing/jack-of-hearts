@@ -3,7 +3,7 @@ import { Player } from '../entities/Player'
 import { Core } from '../entities/Core'
 import { Enemy } from '../entities/Enemy'
 import { Hud } from '../entities/Hud'
-import { CAMERA_FADE } from '../constants'
+import { CAMERA_FADE, CoreStats, PRIMARY_CORE } from '../constants'
 import { EnemySpawner } from '../entities/EnemySpawner'
 import { Emitter } from '../entities/Emitter'
 import { CoreSpawner } from '../entities/CoreSpawner'
@@ -38,7 +38,7 @@ export class Game extends Scene {
       runChildUpdate: false,
     })
     this.coreSpawner = new CoreSpawner(this)
-    this.coreSpawner.spawn(w / 2, h / 2)
+    this.coreSpawner.spawn(PRIMARY_CORE, w / 2, h / 2, true)
 
     this.enemies = this.physics.add.group({
       classType: Enemy,
@@ -56,7 +56,9 @@ export class Game extends Scene {
     this.physics.add.collider(this.enemies, this.enemies)
     this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
     this.game.events.on('start-level', this.enemySpawner.nextLevel)
-    this.game.events.on('spawn-core', () => this.coreSpawner.spawn())
+    this.game.events.on('spawn-core', (stats: CoreStats) =>
+      this.coreSpawner.spawn(stats),
+    )
   }
 
   update(_time: number, _delta: number): void {

@@ -16,6 +16,13 @@ export type EnemyType = {
   offsetHealth: number
   offsetShadow: number
 }
+export type CoreHalfStat = {
+  color: number
+}
+export type CoreStats = {
+  left: CoreHalfStat
+  right: CoreHalfStat
+}
 export type EnemyAttackType = {
   attackDist: number
   attackDelay: number
@@ -43,6 +50,13 @@ export const LEVELS: ILevel[] = [
   { waves: [{ spawnRate: 1500, enemies: ['orc', 'orc'] }] },
   { waves: [{ spawnRate: 1500, enemies: ['ogre'] }] },
 ]
+
+export const CORE_HALVES: Record<string, CoreHalfStat> = {
+  red: { color: 0xff0000 },
+  green: { color: 0x00ff00 },
+  blue: { color: 0x0000ff },
+}
+export const PRIMARY_CORE = { left: CORE_HALVES.red, right: CORE_HALVES.red }
 
 export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
   demon: {

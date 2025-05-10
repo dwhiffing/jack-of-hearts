@@ -1,13 +1,10 @@
 import { GameObjects, Math as PhaserMath } from 'phaser'
 import { Game } from '../scenes/Game'
 
-const ATTACK_ARC_ANGLE: number = Math.PI / 1.3
-const ATTACK_RADIUS: number = 90
-const ATTACK_SPRITE_OFFSET_DISTANCE = 25
-const ATTACK_SPRITE_BASE_Y_OFFSET = 20
-const ATTACK_SPRITE_ANGLE_OFFSET_DEGREES = 60
+const SLASH_BASE_OFFSET = 25
+const SLASH_Y_OFFSET = 20
+const SLASH_ANGLE_OFFSET = 60
 const ATTACK_SPRITE_DEPTH = 99999
-const DEBUG_GRAPHICS_Y_OFFSET = 20
 const DEBUG_ALPHA = 0
 
 export class Slash {
@@ -38,32 +35,27 @@ export class Slash {
     this.slashSprite.setAlpha(1)
     this.slashSprite.play(`slash-${this.index}`, true)
 
-    const normalizedDirection = attackDirection.clone().normalize()
+    const dir = attackDirection.clone().normalize()
 
-    const spriteOffsetX = normalizedDirection.x * ATTACK_SPRITE_OFFSET_DISTANCE
-    const spriteOffsetY = normalizedDirection.y * ATTACK_SPRITE_OFFSET_DISTANCE
+    const spriteOffsetX = dir.x * SLASH_BASE_OFFSET
+    const spriteOffsetY = dir.y * SLASH_BASE_OFFSET
 
     this.slashSprite.setPosition(
       playerPosition.x + spriteOffsetX,
-      playerPosition.y + ATTACK_SPRITE_BASE_Y_OFFSET + spriteOffsetY,
+      playerPosition.y + SLASH_Y_OFFSET + spriteOffsetY,
     )
 
-    const angleInRadians = normalizedDirection.angle()
+    const angleInRadians = dir.angle()
     let angleInDegrees = PhaserMath.RadToDeg(angleInRadians)
-    angleInDegrees += ATTACK_SPRITE_ANGLE_OFFSET_DEGREES
+    angleInDegrees += SLASH_ANGLE_OFFSET
     this.slashSprite.setAngle(angleInDegrees)
 
-    const baseAngle = attackDirection.angle()
-    const startAngle = baseAngle - ATTACK_ARC_ANGLE / 2
-    const endAngle = baseAngle + ATTACK_ARC_ANGLE / 2
-
-    this.debugGraphics.slice(
-      playerPosition.x,
-      playerPosition.y + DEBUG_GRAPHICS_Y_OFFSET,
-      ATTACK_RADIUS,
-      startAngle,
-      endAngle,
-      false,
+    this.debugGraphics.arc(
+      playerPosition.x + dir.x * 40,
+      playerPosition.y + SLASH_Y_OFFSET + dir.y * 40,
+      60,
+      0,
+      360,
     )
     this.debugGraphics.fillPath()
     this.debugGraphics.setDepth(ATTACK_SPRITE_DEPTH - 1)
@@ -74,20 +66,12 @@ export class Slash {
     attackerPosition: PhaserMath.Vector2,
     attackDirection: PhaserMath.Vector2,
   ): boolean {
-    const vecToTarget = new PhaserMath.Vector2(
-      targetPosition.x - attackerPosition.x,
-      targetPosition.y - (attackerPosition.y + DEBUG_GRAPHICS_Y_OFFSET),
+    const circle = new Phaser.Geom.Circle(
+      attackerPosition.x + attackDirection.x * 40,
+      attackerPosition.y + SLASH_Y_OFFSET + attackDirection.y * 40,
+      60,
     )
-
-    if (vecToTarget.length() > ATTACK_RADIUS) {
-      return false
-    }
-
-    const baseAngle = attackDirection.angle()
-    const angleToTarget = vecToTarget.angle()
-    const diffAngle = PhaserMath.Angle.Wrap(angleToTarget - baseAngle)
-
-    return Math.abs(diffAngle) <= ATTACK_ARC_ANGLE / 2
+    return Phaser.Geom.Circle.ContainsPoint(circle, targetPosition)
   }
 
   public cleanup(): void {

@@ -143,11 +143,6 @@ export class Player extends Physics.Arcade.Sprite {
   }
 
   private updateAttachedItemsAndDepth(): void {
-    if (this.carriedCore) {
-      this.carriedCore.setPosition(this.x, this.y - 30)
-      this.carriedCore.setDepth(this.y + 20)
-    }
-
     this.shadow.setPosition(this.x, this.y + 44)
     this.setDepth(this.y)
     this.shadow.setDepth(this.depth - 0.1)
