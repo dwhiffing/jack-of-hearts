@@ -14,6 +14,8 @@ const config: Phaser.Types.Core.GameConfig = {
   scene: [Boot, Menu, MainGame],
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  new Game({ ...config, parent: 'game-container' })
-})
+const StartGame = (parent: string) => {
+  return new Phaser.Game({ ...config, parent })
+}
+
+export default StartGame

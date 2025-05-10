@@ -69,7 +69,7 @@ export class Game extends Scene {
 
   spawnWave = (): void => {
     const level = LEVELS[this.levelIndex]
-    if (this.waveIndex < level.waves.length) {
+    if (level && this.waveIndex < level.waves.length) {
       const wave = level.waves[this.waveIndex++]
       wave.enemies.forEach((enemyKey) => {
         const enemy = this.enemies.get() as Enemy | null
