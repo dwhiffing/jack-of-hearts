@@ -6,7 +6,7 @@ export class Core extends EntityBase {
     super(scene, x, y, 100, 'ui_heart_full.png')
 
     this.setSize(10, 4).setOffset(1.5, 6).setScale(4).setImmovable(true)
-    this.healthBar.setPosition(x - 20, y - 35)
+    this.setPosition(x, y)
   }
 
   public takeDamage(amount: number): void {
@@ -14,6 +14,13 @@ export class Core extends EntityBase {
     this.sceneRef.hud.coreHealthText?.setText(
       `Core Health: ${this.getHealth()}`,
     )
+  }
+
+  public setPosition(x: number, y: number) {
+    super.setPosition(x, y)
+    this.healthBar?.setPosition(x - 20, y - 35)
+    this.setDepth(this.body?.position.y)
+    return this
   }
 
   public destroy(fromScene?: boolean): void {

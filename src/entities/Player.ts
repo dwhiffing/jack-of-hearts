@@ -1,13 +1,17 @@
 import { Physics, Math as PhaserMath, GameObjects, Input } from 'phaser'
 import { Game } from '../scenes/Game'
 import { Enemy } from '../entities/Enemy'
+import { Core } from './Core'
 const PLAYER_ATTACK_ARC_ANGLE: number = Math.PI / 1.8
+const PLAYER_SPEED = 220
 
 export class Player extends Physics.Arcade.Sprite {
   protected sceneRef: Game
   private _lastPlayerDirection: PhaserMath.Vector2
   private _canAttack: boolean
+  public carriedCore?: Core
   private _attackGraphics: GameObjects.Graphics
+  private moveSpeed: number
 
   private keyW: Input.Keyboard.Key
   private keyA: Input.Keyboard.Key
@@ -18,6 +22,7 @@ export class Player extends Physics.Arcade.Sprite {
   constructor(scene: Game, x: number, y: number) {
     super(scene, x, y, 'sheet')
     this.sceneRef = scene
+    this.moveSpeed = PLAYER_SPEED
     scene.add.existing(this)
     scene.physics.add.existing(this)
 
@@ -49,6 +54,10 @@ export class Player extends Physics.Arcade.Sprite {
   private handleMovement(): void {
     if (!this.body) return
 
+    if (this.carriedCore) {
+      this.carriedCore.setPosition(this.x, this.y - 30)
+    }
+
     this.setVelocity(0)
     const currentMovement: PhaserMath.Vector2 = new PhaserMath.Vector2(0, 0)
 
@@ -60,7 +69,11 @@ export class Player extends Physics.Arcade.Sprite {
 
     if (currentMovement.length() > 0) {
       currentMovement.normalize()
-      this.setVelocity(currentMovement.x * 220, currentMovement.y * 220)
+
+      this.moveSpeed = this.carriedCore ? PLAYER_SPEED / 4 : PLAYER_SPEED
+      const s = this.moveSpeed
+      this.setVelocity(currentMovement.x * s, currentMovement.y * s)
+
       this._lastPlayerDirection = currentMovement.clone()
       this.setFlipX(currentMovement.x === -1)
       this.play('player-walk', true)
@@ -74,6 +87,23 @@ export class Player extends Physics.Arcade.Sprite {
   private handleAttack(enemies: Enemy[]): void {
     if (!Input.Keyboard.JustDown(this.keySpace) || !this._canAttack) return
 
+    // check if player is near core, if so, pick it up
+    if (
+      !this.carriedCore &&
+      Phaser.Math.Distance.BetweenPoints(this, this.sceneRef.core) < 10
+    ) {
+      this.carriedCore = this.sceneRef.core
+      return
+    }
+
+    // if we have a core, drop it
+    if (this.carriedCore) {
+      this.carriedCore?.setPosition(this.x, this.y)
+      this.carriedCore = undefined
+      return
+    }
+
+    // otherwise attack
     this._canAttack = false
     this._attackGraphics.clear()
     this._attackGraphics.fillStyle(0xffff99, 0.4)
