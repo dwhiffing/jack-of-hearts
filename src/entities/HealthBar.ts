@@ -44,6 +44,7 @@ export class HealthBar extends Phaser.GameObjects.Graphics {
 
     this.fillStyle(this.borderColor, 1)
     this.fillRect(0, 0, this._width, this._height)
+    this.setDepth(9999)
 
     const fillWidth =
       (this._width - 2 * this.borderThickness) * (this._value / 100)

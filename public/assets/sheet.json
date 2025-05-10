@@ -4,72 +4,51 @@
 			"image": "sheet.png",
 			"format": "RGBA8888",
 			"size": {
-				"w": 593,
-				"h": 64
+				"w": 127,
+				"h": 1189
 			},
 			"scale": 1,
 			"frames": [
 				{
-					"filename": "big_demon_run_anim_f2.png",
+					"filename": "Slash_color4_frame6.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 32,
-						"h": 36
+						"w": 128,
+						"h": 128
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 1,
-						"w": 24,
-						"h": 35
+						"x": 24,
+						"y": 17,
+						"w": 96,
+						"h": 50
 					},
 					"frame": {
 						"x": 1,
 						"y": 1,
-						"w": 24,
-						"h": 35
+						"w": 96,
+						"h": 50
 					}
 				},
 				{
-					"filename": "knight_m_hit_anim_f0.png",
+					"filename": "Slash2_color4_frame7.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 16,
-						"h": 28
+						"w": 128,
+						"h": 128
 					},
 					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 25
+						"x": 29,
+						"y": 1,
+						"w": 27,
+						"h": 49
 					},
 					"frame": {
-						"x": 1,
-						"y": 38,
-						"w": 16,
-						"h": 25
-					}
-				},
-				{
-					"filename": "knight_m_run_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 5,
-						"w": 16,
-						"h": 23
-					},
-					"frame": {
-						"x": 19,
-						"y": 38,
-						"w": 16,
-						"h": 23
+						"x": 99,
+						"y": 1,
+						"w": 27,
+						"h": 49
 					}
 				},
 				{
@@ -87,94 +66,31 @@
 						"h": 32
 					},
 					"frame": {
-						"x": 27,
-						"y": 1,
+						"x": 99,
+						"y": 52,
 						"w": 25,
 						"h": 32
 					}
 				},
 				{
-					"filename": "ogre_run_anim_f1.png",
+					"filename": "Slash2_color4_frame3.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 32,
-						"h": 36
+						"w": 128,
+						"h": 128
 					},
 					"spriteSourceSize": {
-						"x": 5,
-						"y": 8,
-						"w": 22,
-						"h": 28
+						"x": 19,
+						"y": 43,
+						"w": 95,
+						"h": 82
 					},
 					"frame": {
-						"x": 37,
-						"y": 35,
-						"w": 22,
-						"h": 28
-					}
-				},
-				{
-					"filename": "big_demon_idle_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 4,
-						"w": 24,
-						"h": 32
-					},
-					"frame": {
-						"x": 54,
-						"y": 1,
-						"w": 24,
-						"h": 32
-					}
-				},
-				{
-					"filename": "ogre_run_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 9,
-						"w": 24,
-						"h": 27
-					},
-					"frame": {
-						"x": 61,
-						"y": 35,
-						"w": 24,
-						"h": 27
-					}
-				},
-				{
-					"filename": "big_demon_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 4,
-						"y": 5,
-						"w": 25,
-						"h": 31
-					},
-					"frame": {
-						"x": 80,
-						"y": 1,
-						"w": 25,
-						"h": 31
+						"x": 1,
+						"y": 53,
+						"w": 95,
+						"h": 82
 					}
 				},
 				{
@@ -192,14 +108,14 @@
 						"h": 29
 					},
 					"frame": {
-						"x": 87,
-						"y": 34,
+						"x": 98,
+						"y": 86,
 						"w": 28,
 						"h": 29
 					}
 				},
 				{
-					"filename": "big_demon_run_anim_f1.png",
+					"filename": "big_demon_idle_anim_f0.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -207,16 +123,37 @@
 						"h": 36
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 2,
-						"w": 24,
+						"x": 4,
+						"y": 5,
+						"w": 25,
 						"h": 31
 					},
 					"frame": {
-						"x": 107,
-						"y": 1,
-						"w": 24,
+						"x": 98,
+						"y": 117,
+						"w": 25,
 						"h": 31
+					}
+				},
+				{
+					"filename": "Slash2_color4_frame4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 1,
+						"w": 94,
+						"h": 123
+					},
+					"frame": {
+						"x": 1,
+						"y": 137,
+						"w": 94,
+						"h": 123
 					}
 				},
 				{
@@ -234,10 +171,136 @@
 						"h": 29
 					},
 					"frame": {
-						"x": 117,
-						"y": 34,
+						"x": 97,
+						"y": 150,
 						"w": 25,
 						"h": 29
+					}
+				},
+				{
+					"filename": "Slash3_color4_frame3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 84,
+						"y": 46,
+						"w": 24,
+						"h": 57
+					},
+					"frame": {
+						"x": 97,
+						"y": 181,
+						"w": 24,
+						"h": 57
+					}
+				},
+				{
+					"filename": "big_demon_run_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 1,
+						"w": 24,
+						"h": 35
+					},
+					"frame": {
+						"x": 97,
+						"y": 240,
+						"w": 24,
+						"h": 35
+					}
+				},
+				{
+					"filename": "Slash_color4_frame2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 49,
+						"w": 91,
+						"h": 56
+					},
+					"frame": {
+						"x": 1,
+						"y": 262,
+						"w": 91,
+						"h": 56
+					}
+				},
+				{
+					"filename": "big_demon_idle_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 4,
+						"y": 4,
+						"w": 24,
+						"h": 32
+					},
+					"frame": {
+						"x": 94,
+						"y": 277,
+						"w": 24,
+						"h": 32
+					}
+				},
+				{
+					"filename": "big_demon_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 2,
+						"w": 24,
+						"h": 31
+					},
+					"frame": {
+						"x": 94,
+						"y": 311,
+						"w": 24,
+						"h": 31
+					}
+				},
+				{
+					"filename": "Slash3_color4_frame6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 20,
+						"y": 15,
+						"w": 87,
+						"h": 70
+					},
+					"frame": {
+						"x": 1,
+						"y": 320,
+						"w": 87,
+						"h": 70
 					}
 				},
 				{
@@ -255,14 +318,14 @@
 						"h": 30
 					},
 					"frame": {
-						"x": 133,
-						"y": 1,
+						"x": 90,
+						"y": 344,
 						"w": 24,
 						"h": 30
 					}
 				},
 				{
-					"filename": "ogre_run_anim_f2.png",
+					"filename": "ogre_run_anim_f3.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -270,79 +333,37 @@
 						"h": 36
 					},
 					"spriteSourceSize": {
-						"x": 5,
-						"y": 7,
-						"w": 22,
-						"h": 29
-					},
-					"frame": {
-						"x": 144,
-						"y": 33,
-						"w": 22,
-						"h": 29
-					}
-				},
-				{
-					"filename": "ogre_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 5,
+						"x": 4,
 						"y": 9,
-						"w": 22,
+						"w": 24,
 						"h": 27
 					},
 					"frame": {
-						"x": 159,
-						"y": 1,
-						"w": 22,
+						"x": 90,
+						"y": 376,
+						"w": 24,
 						"h": 27
 					}
 				},
 				{
-					"filename": "ogre_idle_anim_f1.png",
+					"filename": "Slash3_color4_frame7.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
-						"w": 32,
-						"h": 36
+						"w": 128,
+						"h": 128
 					},
 					"spriteSourceSize": {
-						"x": 5,
-						"y": 9,
-						"w": 22,
-						"h": 27
+						"x": 23,
+						"y": 17,
+						"w": 83,
+						"h": 47
 					},
 					"frame": {
-						"x": 168,
-						"y": 30,
-						"w": 22,
-						"h": 27
-					}
-				},
-				{
-					"filename": "ogre_run_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 5,
-						"y": 9,
-						"w": 22,
-						"h": 27
-					},
-					"frame": {
-						"x": 183,
-						"y": 1,
-						"w": 22,
-						"h": 27
+						"x": 1,
+						"y": 392,
+						"w": 83,
+						"h": 47
 					}
 				},
 				{
@@ -360,766 +381,10 @@
 						"h": 26
 					},
 					"frame": {
-						"x": 192,
-						"y": 30,
+						"x": 86,
+						"y": 405,
 						"w": 24,
 						"h": 26
-					}
-				},
-				{
-					"filename": "ogre_idle_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 32,
-						"h": 36
-					},
-					"spriteSourceSize": {
-						"x": 5,
-						"y": 10,
-						"w": 22,
-						"h": 26
-					},
-					"frame": {
-						"x": 207,
-						"y": 1,
-						"w": 22,
-						"h": 26
-					}
-				},
-				{
-					"filename": "knight_m_run_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 5,
-						"w": 16,
-						"h": 23
-					},
-					"frame": {
-						"x": 218,
-						"y": 29,
-						"w": 16,
-						"h": 23
-					}
-				},
-				{
-					"filename": "goblin_idle_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 7,
-						"w": 12,
-						"h": 9
-					},
-					"frame": {
-						"x": 218,
-						"y": 54,
-						"w": 12,
-						"h": 9
-					}
-				},
-				{
-					"filename": "chort_run_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 0,
-						"w": 16,
-						"h": 22
-					},
-					"frame": {
-						"x": 231,
-						"y": 1,
-						"w": 16,
-						"h": 22
-					}
-				},
-				{
-					"filename": "knight_m_run_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 6,
-						"w": 16,
-						"h": 22
-					},
-					"frame": {
-						"x": 236,
-						"y": 25,
-						"w": 16,
-						"h": 22
-					}
-				},
-				{
-					"filename": "knight_m_run_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 5,
-						"w": 16,
-						"h": 22
-					},
-					"frame": {
-						"x": 249,
-						"y": 1,
-						"w": 16,
-						"h": 22
-					}
-				},
-				{
-					"filename": "imp_run_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 1,
-						"w": 13,
-						"h": 14
-					},
-					"frame": {
-						"x": 236,
-						"y": 49,
-						"w": 13,
-						"h": 14
-					}
-				},
-				{
-					"filename": "imp_run_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 2,
-						"w": 12,
-						"h": 14
-					},
-					"frame": {
-						"x": 251,
-						"y": 49,
-						"w": 12,
-						"h": 14
-					}
-				},
-				{
-					"filename": "chort_idle_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 1,
-						"w": 13,
-						"h": 22
-					},
-					"frame": {
-						"x": 254,
-						"y": 25,
-						"w": 13,
-						"h": 22
-					}
-				},
-				{
-					"filename": "chort_run_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 1,
-						"w": 13,
-						"h": 22
-					},
-					"frame": {
-						"x": 267,
-						"y": 1,
-						"w": 13,
-						"h": 22
-					}
-				},
-				{
-					"filename": "imp_run_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 2,
-						"w": 12,
-						"h": 14
-					},
-					"frame": {
-						"x": 265,
-						"y": 49,
-						"w": 12,
-						"h": 14
-					}
-				},
-				{
-					"filename": "knight_m_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 7,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 269,
-						"y": 25,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "chort_idle_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 8,
-						"w": 13,
-						"h": 15
-					},
-					"frame": {
-						"x": 279,
-						"y": 48,
-						"w": 13,
-						"h": 15
-					}
-				},
-				{
-					"filename": "knight_m_idle_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 7,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 282,
-						"y": 1,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "knight_m_idle_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 7,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 287,
-						"y": 24,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "lizard_f_hit_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 5,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 300,
-						"y": 1,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "chort_idle_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 7,
-						"w": 13,
-						"h": 16
-					},
-					"frame": {
-						"x": 294,
-						"y": 47,
-						"w": 13,
-						"h": 16
-					}
-				},
-				{
-					"filename": "lizard_f_run_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 6,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 305,
-						"y": 24,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "lizard_f_run_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 7,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 318,
-						"y": 1,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "orc_warrior_idle_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 7,
-						"w": 13,
-						"h": 16
-					},
-					"frame": {
-						"x": 309,
-						"y": 47,
-						"w": 13,
-						"h": 16
-					}
-				},
-				{
-					"filename": "lizard_m_hit_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 5,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 323,
-						"y": 24,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "lizard_m_run_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 6,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 336,
-						"y": 1,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "orc_warrior_idle_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 7,
-						"w": 13,
-						"h": 16
-					},
-					"frame": {
-						"x": 324,
-						"y": 47,
-						"w": 13,
-						"h": 16
-					}
-				},
-				{
-					"filename": "skelet_run_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 0,
-						"w": 12,
-						"h": 16
-					},
-					"frame": {
-						"x": 339,
-						"y": 47,
-						"w": 12,
-						"h": 16
-					}
-				},
-				{
-					"filename": "lizard_m_run_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 7,
-						"w": 16,
-						"h": 21
-					},
-					"frame": {
-						"x": 341,
-						"y": 24,
-						"w": 16,
-						"h": 21
-					}
-				},
-				{
-					"filename": "skelet_run_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 0,
-						"w": 12,
-						"h": 16
-					},
-					"frame": {
-						"x": 353,
-						"y": 47,
-						"w": 12,
-						"h": 16
-					}
-				},
-				{
-					"filename": "knight_m_idle_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 8,
-						"w": 16,
-						"h": 20
-					},
-					"frame": {
-						"x": 354,
-						"y": 1,
-						"w": 16,
-						"h": 20
-					}
-				},
-				{
-					"filename": "lizard_f_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 8,
-						"w": 16,
-						"h": 20
-					},
-					"frame": {
-						"x": 359,
-						"y": 23,
-						"w": 16,
-						"h": 20
-					}
-				},
-				{
-					"filename": "lizard_f_idle_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 8,
-						"w": 16,
-						"h": 20
-					},
-					"frame": {
-						"x": 372,
-						"y": 1,
-						"w": 16,
-						"h": 20
-					}
-				},
-				{
-					"filename": "lizard_f_run_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 10,
-						"w": 16,
-						"h": 18
-					},
-					"frame": {
-						"x": 367,
-						"y": 45,
-						"w": 16,
-						"h": 18
-					}
-				},
-				{
-					"filename": "lizard_f_run_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 8,
-						"w": 16,
-						"h": 20
-					},
-					"frame": {
-						"x": 377,
-						"y": 23,
-						"w": 16,
-						"h": 20
-					}
-				},
-				{
-					"filename": "lizard_m_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 8,
-						"w": 16,
-						"h": 20
-					},
-					"frame": {
-						"x": 390,
-						"y": 1,
-						"w": 16,
-						"h": 20
-					}
-				},
-				{
-					"filename": "lizard_m_run_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 10,
-						"w": 16,
-						"h": 18
-					},
-					"frame": {
-						"x": 385,
-						"y": 45,
-						"w": 16,
-						"h": 18
-					}
-				},
-				{
-					"filename": "lizard_m_idle_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 8,
-						"w": 16,
-						"h": 20
-					},
-					"frame": {
-						"x": 395,
-						"y": 23,
-						"w": 16,
-						"h": 20
-					}
-				},
-				{
-					"filename": "lizard_m_run_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 28
-					},
-					"spriteSourceSize": {
-						"x": 0,
-						"y": 8,
-						"w": 16,
-						"h": 20
-					},
-					"frame": {
-						"x": 408,
-						"y": 1,
-						"w": 16,
-						"h": 20
-					}
-				},
-				{
-					"filename": "orc_warrior_run_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 1,
-						"y": 4,
-						"w": 15,
-						"h": 18
-					},
-					"frame": {
-						"x": 403,
-						"y": 45,
-						"w": 15,
-						"h": 18
 					}
 				},
 				{
@@ -1137,8 +402,8 @@
 						"h": 20
 					},
 					"frame": {
-						"x": 413,
-						"y": 23,
+						"x": 112,
+						"y": 405,
 						"w": 14,
 						"h": 20
 					}
@@ -1158,10 +423,976 @@
 						"h": 18
 					},
 					"frame": {
-						"x": 420,
-						"y": 45,
+						"x": 112,
+						"y": 427,
 						"w": 14,
 						"h": 18
+					}
+				},
+				{
+					"filename": "ogre_run_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 7,
+						"w": 22,
+						"h": 29
+					},
+					"frame": {
+						"x": 86,
+						"y": 433,
+						"w": 22,
+						"h": 29
+					}
+				},
+				{
+					"filename": "knight_m_hit_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 25
+					},
+					"frame": {
+						"x": 110,
+						"y": 447,
+						"w": 16,
+						"h": 25
+					}
+				},
+				{
+					"filename": "Slash3_color4_frame5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 14,
+						"w": 82,
+						"h": 82
+					},
+					"frame": {
+						"x": 1,
+						"y": 441,
+						"w": 82,
+						"h": 82
+					}
+				},
+				{
+					"filename": "ogre_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 8,
+						"w": 22,
+						"h": 28
+					},
+					"frame": {
+						"x": 85,
+						"y": 464,
+						"w": 22,
+						"h": 28
+					}
+				},
+				{
+					"filename": "knight_m_run_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 16,
+						"h": 23
+					},
+					"frame": {
+						"x": 109,
+						"y": 474,
+						"w": 16,
+						"h": 23
+					}
+				},
+				{
+					"filename": "ogre_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 9,
+						"w": 22,
+						"h": 27
+					},
+					"frame": {
+						"x": 85,
+						"y": 494,
+						"w": 22,
+						"h": 27
+					}
+				},
+				{
+					"filename": "knight_m_run_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 16,
+						"h": 23
+					},
+					"frame": {
+						"x": 109,
+						"y": 499,
+						"w": 16,
+						"h": 23
+					}
+				},
+				{
+					"filename": "ogre_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 9,
+						"w": 22,
+						"h": 27
+					},
+					"frame": {
+						"x": 85,
+						"y": 523,
+						"w": 22,
+						"h": 27
+					}
+				},
+				{
+					"filename": "Slash_color4_frame7.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 41,
+						"y": 16,
+						"w": 81,
+						"h": 85
+					},
+					"frame": {
+						"x": 1,
+						"y": 525,
+						"w": 81,
+						"h": 85
+					}
+				},
+				{
+					"filename": "chort_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 109,
+						"y": 524,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "knight_m_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 6,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 109,
+						"y": 548,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "ogre_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 9,
+						"w": 22,
+						"h": 27
+					},
+					"frame": {
+						"x": 84,
+						"y": 552,
+						"w": 22,
+						"h": 27
+					}
+				},
+				{
+					"filename": "knight_m_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 108,
+						"y": 572,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "ogre_idle_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 32,
+						"h": 36
+					},
+					"spriteSourceSize": {
+						"x": 5,
+						"y": 10,
+						"w": 22,
+						"h": 26
+					},
+					"frame": {
+						"x": 84,
+						"y": 581,
+						"w": 22,
+						"h": 26
+					}
+				},
+				{
+					"filename": "knight_m_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 7,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 108,
+						"y": 596,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "Slash3_color4_frame2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 84,
+						"y": 73,
+						"w": 21,
+						"h": 30
+					},
+					"frame": {
+						"x": 84,
+						"y": 609,
+						"w": 21,
+						"h": 30
+					}
+				},
+				{
+					"filename": "Slash_color4_frame5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 19,
+						"y": 18,
+						"w": 81,
+						"h": 44
+					},
+					"frame": {
+						"x": 1,
+						"y": 612,
+						"w": 81,
+						"h": 44
+					}
+				},
+				{
+					"filename": "knight_m_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 7,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 107,
+						"y": 619,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "knight_m_idle_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 7,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 84,
+						"y": 641,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "Slash2_color4_frame2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 14,
+						"y": 91,
+						"w": 80,
+						"h": 33
+					},
+					"frame": {
+						"x": 1,
+						"y": 658,
+						"w": 80,
+						"h": 33
+					}
+				},
+				{
+					"filename": "lizard_f_hit_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 102,
+						"y": 642,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "lizard_f_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 6,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 83,
+						"y": 664,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "lizard_f_run_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 7,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 101,
+						"y": 665,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "lizard_m_hit_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 5,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 83,
+						"y": 687,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "Slash3_color4_frame8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 24,
+						"y": 18,
+						"w": 78,
+						"h": 45
+					},
+					"frame": {
+						"x": 1,
+						"y": 693,
+						"w": 78,
+						"h": 45
+					}
+				},
+				{
+					"filename": "lizard_m_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 6,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 101,
+						"y": 688,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "lizard_m_run_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 7,
+						"w": 16,
+						"h": 21
+					},
+					"frame": {
+						"x": 81,
+						"y": 710,
+						"w": 16,
+						"h": 21
+					}
+				},
+				{
+					"filename": "knight_m_idle_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 20
+					},
+					"frame": {
+						"x": 99,
+						"y": 711,
+						"w": 16,
+						"h": 20
+					}
+				},
+				{
+					"filename": "lizard_f_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 20
+					},
+					"frame": {
+						"x": 81,
+						"y": 733,
+						"w": 16,
+						"h": 20
+					}
+				},
+				{
+					"filename": "Slash_color4_frame3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 39,
+						"y": 38,
+						"w": 74,
+						"h": 67
+					},
+					"frame": {
+						"x": 1,
+						"y": 740,
+						"w": 74,
+						"h": 67
+					}
+				},
+				{
+					"filename": "Slash3_color4_frame4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 61,
+						"y": 16,
+						"w": 49,
+						"h": 85
+					},
+					"frame": {
+						"x": 77,
+						"y": 755,
+						"w": 49,
+						"h": 85
+					}
+				},
+				{
+					"filename": "lizard_f_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 20
+					},
+					"frame": {
+						"x": 99,
+						"y": 733,
+						"w": 16,
+						"h": 20
+					}
+				},
+				{
+					"filename": "Slash_color4_frame4.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 41,
+						"y": 39,
+						"w": 71,
+						"h": 44
+					},
+					"frame": {
+						"x": 1,
+						"y": 809,
+						"w": 71,
+						"h": 44
+					}
+				},
+				{
+					"filename": "Slash2_color4_frame6.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 1,
+						"w": 52,
+						"h": 77
+					},
+					"frame": {
+						"x": 74,
+						"y": 842,
+						"w": 52,
+						"h": 77
+					}
+				},
+				{
+					"filename": "Slash_color4_frame8.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 57,
+						"y": 22,
+						"w": 63,
+						"h": 79
+					},
+					"frame": {
+						"x": 1,
+						"y": 855,
+						"w": 63,
+						"h": 79
+					}
+				},
+				{
+					"filename": "Slash2_color4_frame5.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 29,
+						"y": 1,
+						"w": 60,
+						"h": 92
+					},
+					"frame": {
+						"x": 66,
+						"y": 921,
+						"w": 60,
+						"h": 92
+					}
+				},
+				{
+					"filename": "Slash_color4_frame9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 57,
+						"y": 42,
+						"w": 63,
+						"h": 59
+					},
+					"frame": {
+						"x": 1,
+						"y": 936,
+						"w": 63,
+						"h": 59
+					}
+				},
+				{
+					"filename": "Slash3_color4_frame9.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 26,
+						"y": 20,
+						"w": 57,
+						"h": 43
+					},
+					"frame": {
+						"x": 1,
+						"y": 997,
+						"w": 57,
+						"h": 43
+					}
+				},
+				{
+					"filename": "Slash2_color4_frame1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 13,
+						"y": 91,
+						"w": 50,
+						"h": 30
+					},
+					"frame": {
+						"x": 60,
+						"y": 1015,
+						"w": 50,
+						"h": 30
+					}
+				},
+				{
+					"filename": "wogol_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 4,
+						"w": 14,
+						"h": 18
+					},
+					"frame": {
+						"x": 112,
+						"y": 1015,
+						"w": 14,
+						"h": 18
+					}
+				},
+				{
+					"filename": "chort_idle_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 1,
+						"w": 13,
+						"h": 22
+					},
+					"frame": {
+						"x": 112,
+						"y": 1035,
+						"w": 13,
+						"h": 22
+					}
+				},
+				{
+					"filename": "Slash_color4_frame1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 21,
+						"y": 74,
+						"w": 47,
+						"h": 31
+					},
+					"frame": {
+						"x": 1,
+						"y": 1042,
+						"w": 47,
+						"h": 31
+					}
+				},
+				{
+					"filename": "lizard_f_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 20
+					},
+					"frame": {
+						"x": 50,
+						"y": 1047,
+						"w": 16,
+						"h": 20
+					}
+				},
+				{
+					"filename": "lizard_m_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 20
+					},
+					"frame": {
+						"x": 68,
+						"y": 1047,
+						"w": 16,
+						"h": 20
+					}
+				},
+				{
+					"filename": "lizard_m_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 20
+					},
+					"frame": {
+						"x": 86,
+						"y": 1047,
+						"w": 16,
+						"h": 20
+					}
+				},
+				{
+					"filename": "lizard_m_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 28
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 20
+					},
+					"frame": {
+						"x": 104,
+						"y": 1059,
+						"w": 16,
+						"h": 20
 					}
 				},
 				{
@@ -1179,8 +1410,8 @@
 						"h": 19
 					},
 					"frame": {
-						"x": 426,
-						"y": 1,
+						"x": 50,
+						"y": 1069,
 						"w": 16,
 						"h": 19
 					}
@@ -1200,93 +1431,51 @@
 						"h": 19
 					},
 					"frame": {
-						"x": 429,
-						"y": 22,
+						"x": 68,
+						"y": 1069,
 						"w": 16,
 						"h": 19
 					}
 				},
 				{
-					"filename": "chort_idle_anim_f0.png",
+					"filename": "lizard_f_run_anim_f3.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
 						"w": 16,
-						"h": 23
+						"h": 28
 					},
 					"spriteSourceSize": {
-						"x": 2,
-						"y": 4,
-						"w": 13,
-						"h": 19
-					},
-					"frame": {
-						"x": 444,
-						"y": 1,
-						"w": 13,
-						"h": 19
-					}
-				},
-				{
-					"filename": "wogol_run_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
+						"x": 0,
+						"y": 10,
 						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 1,
-						"y": 4,
-						"w": 14,
 						"h": 18
 					},
 					"frame": {
-						"x": 436,
-						"y": 43,
-						"w": 14,
+						"x": 86,
+						"y": 1069,
+						"w": 16,
 						"h": 18
 					}
 				},
 				{
-					"filename": "orc_warrior_run_anim_f0.png",
+					"filename": "lizard_m_run_anim_f3.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
 						"w": 16,
-						"h": 23
+						"h": 28
 					},
 					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 13,
-						"h": 18
-					},
-					"frame": {
-						"x": 447,
-						"y": 22,
-						"w": 13,
-						"h": 18
-					}
-				},
-				{
-					"filename": "wogol_run_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
+						"x": 0,
+						"y": 10,
 						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 5,
-						"w": 12,
 						"h": 18
 					},
 					"frame": {
-						"x": 459,
-						"y": 1,
-						"w": 12,
+						"x": 104,
+						"y": 1081,
+						"w": 16,
 						"h": 18
 					}
 				},
@@ -1305,8 +1494,8 @@
 						"h": 17
 					},
 					"frame": {
-						"x": 452,
-						"y": 42,
+						"x": 86,
+						"y": 1089,
 						"w": 16,
 						"h": 17
 					}
@@ -1326,10 +1515,94 @@
 						"h": 17
 					},
 					"frame": {
-						"x": 462,
-						"y": 21,
+						"x": 104,
+						"y": 1101,
 						"w": 16,
 						"h": 17
+					}
+				},
+				{
+					"filename": "orc_warrior_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 1,
+						"y": 4,
+						"w": 15,
+						"h": 18
+					},
+					"frame": {
+						"x": 1,
+						"y": 1075,
+						"w": 15,
+						"h": 18
+					}
+				},
+				{
+					"filename": "chort_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 1,
+						"w": 13,
+						"h": 22
+					},
+					"frame": {
+						"x": 18,
+						"y": 1075,
+						"w": 13,
+						"h": 22
+					}
+				},
+				{
+					"filename": "chort_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 4,
+						"w": 13,
+						"h": 19
+					},
+					"frame": {
+						"x": 1,
+						"y": 1095,
+						"w": 13,
+						"h": 19
+					}
+				},
+				{
+					"filename": "orc_warrior_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 13,
+						"h": 18
+					},
+					"frame": {
+						"x": 33,
+						"y": 1075,
+						"w": 13,
+						"h": 18
 					}
 				},
 				{
@@ -1347,8 +1620,8 @@
 						"h": 17
 					},
 					"frame": {
-						"x": 473,
-						"y": 1,
+						"x": 48,
+						"y": 1090,
 						"w": 13,
 						"h": 17
 					}
@@ -1368,8 +1641,8 @@
 						"h": 17
 					},
 					"frame": {
-						"x": 470,
-						"y": 40,
+						"x": 33,
+						"y": 1095,
 						"w": 13,
 						"h": 17
 					}
@@ -1389,56 +1662,14 @@
 						"h": 17
 					},
 					"frame": {
-						"x": 480,
-						"y": 20,
+						"x": 16,
+						"y": 1099,
 						"w": 13,
 						"h": 17
 					}
 				},
 				{
-					"filename": "wogol_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 6,
-						"w": 12,
-						"h": 17
-					},
-					"frame": {
-						"x": 488,
-						"y": 1,
-						"w": 12,
-						"h": 17
-					}
-				},
-				{
-					"filename": "wogol_run_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 6,
-						"w": 12,
-						"h": 17
-					},
-					"frame": {
-						"x": 485,
-						"y": 39,
-						"w": 12,
-						"h": 17
-					}
-				},
-				{
-					"filename": "wogol_idle_anim_f1.png",
+					"filename": "chort_idle_anim_f2.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -1448,14 +1679,77 @@
 					"spriteSourceSize": {
 						"x": 2,
 						"y": 7,
-						"w": 12,
+						"w": 13,
 						"h": 16
 					},
 					"frame": {
-						"x": 495,
-						"y": 20,
-						"w": 12,
+						"x": 1,
+						"y": 1116,
+						"w": 13,
 						"h": 16
+					}
+				},
+				{
+					"filename": "orc_warrior_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 7,
+						"w": 13,
+						"h": 16
+					},
+					"frame": {
+						"x": 63,
+						"y": 1090,
+						"w": 13,
+						"h": 16
+					}
+				},
+				{
+					"filename": "orc_warrior_idle_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 7,
+						"w": 13,
+						"h": 16
+					},
+					"frame": {
+						"x": 63,
+						"y": 1108,
+						"w": 13,
+						"h": 16
+					}
+				},
+				{
+					"filename": "chort_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 8,
+						"w": 13,
+						"h": 15
+					},
+					"frame": {
+						"x": 48,
+						"y": 1109,
+						"w": 13,
+						"h": 15
 					}
 				},
 				{
@@ -1473,14 +1767,14 @@
 						"h": 15
 					},
 					"frame": {
-						"x": 502,
-						"y": 1,
+						"x": 31,
+						"y": 1114,
 						"w": 13,
 						"h": 15
 					}
 				},
 				{
-					"filename": "skelet_idle_anim_f0.png",
+					"filename": "imp_run_anim_f1.png",
 					"rotated": false,
 					"trimmed": true,
 					"sourceSize": {
@@ -1490,224 +1784,14 @@
 					"spriteSourceSize": {
 						"x": 2,
 						"y": 1,
-						"w": 12,
-						"h": 15
-					},
-					"frame": {
-						"x": 499,
-						"y": 38,
-						"w": 12,
-						"h": 15
-					}
-				},
-				{
-					"filename": "skelet_run_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 1,
-						"w": 12,
-						"h": 15
-					},
-					"frame": {
-						"x": 509,
-						"y": 18,
-						"w": 12,
-						"h": 15
-					}
-				},
-				{
-					"filename": "wogol_idle_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 8,
-						"w": 12,
-						"h": 15
-					},
-					"frame": {
-						"x": 517,
-						"y": 1,
-						"w": 12,
-						"h": 15
-					}
-				},
-				{
-					"filename": "wogol_run_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 8,
-						"w": 12,
-						"h": 15
-					},
-					"frame": {
-						"x": 513,
-						"y": 35,
-						"w": 12,
-						"h": 15
-					}
-				},
-				{
-					"filename": "goblin_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 5,
-						"w": 12,
-						"h": 11
-					},
-					"frame": {
-						"x": 513,
-						"y": 52,
-						"w": 12,
-						"h": 11
-					}
-				},
-				{
-					"filename": "imp_run_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 2,
-						"w": 12,
+						"w": 13,
 						"h": 14
 					},
 					"frame": {
-						"x": 523,
-						"y": 18,
-						"w": 12,
+						"x": 16,
+						"y": 1118,
+						"w": 13,
 						"h": 14
-					}
-				},
-				{
-					"filename": "skelet_idle_anim_f3.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 2,
-						"w": 12,
-						"h": 14
-					},
-					"frame": {
-						"x": 531,
-						"y": 1,
-						"w": 12,
-						"h": 14
-					}
-				},
-				{
-					"filename": "skelet_run_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 0,
-						"w": 12,
-						"h": 14
-					},
-					"frame": {
-						"x": 527,
-						"y": 34,
-						"w": 12,
-						"h": 14
-					}
-				},
-				{
-					"filename": "imp_idle_anim_f0.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 3,
-						"y": 3,
-						"w": 12,
-						"h": 13
-					},
-					"frame": {
-						"x": 527,
-						"y": 50,
-						"w": 12,
-						"h": 13
-					}
-				},
-				{
-					"filename": "skelet_idle_anim_f1.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 16
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 3,
-						"w": 12,
-						"h": 13
-					},
-					"frame": {
-						"x": 537,
-						"y": 17,
-						"w": 12,
-						"h": 13
-					}
-				},
-				{
-					"filename": "wogol_idle_anim_f2.png",
-					"rotated": false,
-					"trimmed": true,
-					"sourceSize": {
-						"w": 16,
-						"h": 23
-					},
-					"spriteSourceSize": {
-						"x": 2,
-						"y": 10,
-						"w": 12,
-						"h": 13
-					},
-					"frame": {
-						"x": 545,
-						"y": 1,
-						"w": 12,
-						"h": 13
 					}
 				},
 				{
@@ -1725,8 +1809,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 541,
-						"y": 32,
+						"x": 78,
+						"y": 1108,
 						"w": 13,
 						"h": 12
 					}
@@ -1746,8 +1830,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 551,
-						"y": 16,
+						"x": 93,
+						"y": 1120,
 						"w": 13,
 						"h": 12
 					}
@@ -1767,8 +1851,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 559,
-						"y": 1,
+						"x": 78,
+						"y": 1122,
 						"w": 13,
 						"h": 12
 					}
@@ -1788,10 +1872,409 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 541,
-						"y": 46,
+						"x": 108,
+						"y": 1120,
 						"w": 13,
 						"h": 12
+					}
+				},
+				{
+					"filename": "wogol_run_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 5,
+						"w": 12,
+						"h": 18
+					},
+					"frame": {
+						"x": 46,
+						"y": 1126,
+						"w": 12,
+						"h": 18
+					}
+				},
+				{
+					"filename": "wogol_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 6,
+						"w": 12,
+						"h": 17
+					},
+					"frame": {
+						"x": 31,
+						"y": 1131,
+						"w": 12,
+						"h": 17
+					}
+				},
+				{
+					"filename": "wogol_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 6,
+						"w": 12,
+						"h": 17
+					},
+					"frame": {
+						"x": 60,
+						"y": 1126,
+						"w": 12,
+						"h": 17
+					}
+				},
+				{
+					"filename": "skelet_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 12,
+						"h": 16
+					},
+					"frame": {
+						"x": 1,
+						"y": 1134,
+						"w": 12,
+						"h": 16
+					}
+				},
+				{
+					"filename": "skelet_run_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 12,
+						"h": 16
+					},
+					"frame": {
+						"x": 15,
+						"y": 1134,
+						"w": 12,
+						"h": 16
+					}
+				},
+				{
+					"filename": "wogol_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 7,
+						"w": 12,
+						"h": 16
+					},
+					"frame": {
+						"x": 1,
+						"y": 1152,
+						"w": 12,
+						"h": 16
+					}
+				},
+				{
+					"filename": "skelet_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 1,
+						"w": 12,
+						"h": 15
+					},
+					"frame": {
+						"x": 1,
+						"y": 1170,
+						"w": 12,
+						"h": 15
+					}
+				},
+				{
+					"filename": "skelet_run_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 1,
+						"w": 12,
+						"h": 15
+					},
+					"frame": {
+						"x": 93,
+						"y": 1134,
+						"w": 12,
+						"h": 15
+					}
+				},
+				{
+					"filename": "wogol_idle_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 8,
+						"w": 12,
+						"h": 15
+					},
+					"frame": {
+						"x": 74,
+						"y": 1136,
+						"w": 12,
+						"h": 15
+					}
+				},
+				{
+					"filename": "wogol_run_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 8,
+						"w": 12,
+						"h": 15
+					},
+					"frame": {
+						"x": 60,
+						"y": 1145,
+						"w": 12,
+						"h": 15
+					}
+				},
+				{
+					"filename": "imp_run_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 2,
+						"w": 12,
+						"h": 14
+					},
+					"frame": {
+						"x": 45,
+						"y": 1146,
+						"w": 12,
+						"h": 14
+					}
+				},
+				{
+					"filename": "imp_run_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 2,
+						"w": 12,
+						"h": 14
+					},
+					"frame": {
+						"x": 29,
+						"y": 1150,
+						"w": 12,
+						"h": 14
+					}
+				},
+				{
+					"filename": "imp_run_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 2,
+						"w": 12,
+						"h": 14
+					},
+					"frame": {
+						"x": 15,
+						"y": 1152,
+						"w": 12,
+						"h": 14
+					}
+				},
+				{
+					"filename": "skelet_idle_anim_f3.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 2,
+						"w": 12,
+						"h": 14
+					},
+					"frame": {
+						"x": 15,
+						"y": 1168,
+						"w": 12,
+						"h": 14
+					}
+				},
+				{
+					"filename": "skelet_run_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 0,
+						"w": 12,
+						"h": 14
+					},
+					"frame": {
+						"x": 107,
+						"y": 1134,
+						"w": 12,
+						"h": 14
+					}
+				},
+				{
+					"filename": "imp_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 3,
+						"w": 12,
+						"h": 13
+					},
+					"frame": {
+						"x": 107,
+						"y": 1150,
+						"w": 12,
+						"h": 13
+					}
+				},
+				{
+					"filename": "skelet_idle_anim_f1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 3,
+						"w": 12,
+						"h": 13
+					},
+					"frame": {
+						"x": 88,
+						"y": 1151,
+						"w": 12,
+						"h": 13
+					}
+				},
+				{
+					"filename": "Slash3_color4_frame1.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 128,
+						"h": 128
+					},
+					"spriteSourceSize": {
+						"x": 84,
+						"y": 90,
+						"w": 12,
+						"h": 13
+					},
+					"frame": {
+						"x": 74,
+						"y": 1153,
+						"w": 12,
+						"h": 13
+					}
+				},
+				{
+					"filename": "wogol_idle_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 23
+					},
+					"spriteSourceSize": {
+						"x": 2,
+						"y": 10,
+						"w": 12,
+						"h": 13
+					},
+					"frame": {
+						"x": 29,
+						"y": 1168,
+						"w": 12,
+						"h": 13
 					}
 				},
 				{
@@ -1809,8 +2292,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 574,
-						"y": 1,
+						"x": 43,
+						"y": 1168,
 						"w": 12,
 						"h": 12
 					}
@@ -1830,8 +2313,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 566,
-						"y": 15,
+						"x": 57,
+						"y": 1162,
 						"w": 12,
 						"h": 12
 					}
@@ -1851,8 +2334,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 580,
-						"y": 15,
+						"x": 57,
+						"y": 1176,
 						"w": 12,
 						"h": 12
 					}
@@ -1872,8 +2355,8 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 580,
-						"y": 15,
+						"x": 57,
+						"y": 1176,
 						"w": 12,
 						"h": 12
 					}
@@ -1893,10 +2376,31 @@
 						"h": 12
 					},
 					"frame": {
-						"x": 566,
-						"y": 29,
+						"x": 71,
+						"y": 1168,
 						"w": 12,
 						"h": 12
+					}
+				},
+				{
+					"filename": "goblin_idle_anim_f0.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 5,
+						"w": 12,
+						"h": 11
+					},
+					"frame": {
+						"x": 85,
+						"y": 1168,
+						"w": 12,
+						"h": 11
 					}
 				},
 				{
@@ -1914,10 +2418,31 @@
 						"h": 11
 					},
 					"frame": {
-						"x": 580,
-						"y": 29,
+						"x": 99,
+						"y": 1166,
 						"w": 12,
 						"h": 11
+					}
+				},
+				{
+					"filename": "goblin_idle_anim_f2.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 16
+					},
+					"spriteSourceSize": {
+						"x": 3,
+						"y": 7,
+						"w": 12,
+						"h": 9
+					},
+					"frame": {
+						"x": 99,
+						"y": 1179,
+						"w": 12,
+						"h": 9
 					}
 				},
 				{
@@ -1935,8 +2460,8 @@
 						"h": 11
 					},
 					"frame": {
-						"x": 580,
-						"y": 42,
+						"x": 113,
+						"y": 1165,
 						"w": 12,
 						"h": 11
 					}
@@ -1956,8 +2481,8 @@
 						"h": 10
 					},
 					"frame": {
-						"x": 556,
-						"y": 43,
+						"x": 113,
+						"y": 1178,
 						"w": 12,
 						"h": 10
 					}
@@ -1977,8 +2502,8 @@
 						"h": 10
 					},
 					"frame": {
-						"x": 556,
-						"y": 43,
+						"x": 113,
+						"y": 1178,
 						"w": 12,
 						"h": 10
 					}
@@ -1989,6 +2514,6 @@
 	"meta": {
 		"app": "https://www.codeandweb.com/texturepacker",
 		"version": "3.0",
-		"smartupdate": "$TexturePacker:SmartUpdate:5e05fae572fbd713dad2895cfd23103c:cf73b88293c01b1d2a6a41192678f51a:9c44ecd7e9a522007eaff2949095bc1d$"
+		"smartupdate": "$TexturePacker:SmartUpdate:a2776416ac7534891c6165961dd76bab:5b5d6a65fb49a9ad63d57e9092009342:9c44ecd7e9a522007eaff2949095bc1d$"
 	}
 }
