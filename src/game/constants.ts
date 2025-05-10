@@ -55,6 +55,9 @@ export const CORE_HALVES: Record<string, CoreHalfStat> = {
   red: { color: 0xff0000 },
   green: { color: 0x00ff00 },
   blue: { color: 0x0000ff },
+  purple: { color: 0xff00ff },
+  yellow: { color: 0xffff00 },
+  cyan: { color: 0xff00ff },
 }
 export const PRIMARY_CORE = { left: CORE_HALVES.red, right: CORE_HALVES.red }
 

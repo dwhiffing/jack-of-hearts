@@ -1,8 +1,8 @@
 import { useLayoutEffect, useRef, useState } from 'react'
-import { CoreModal } from './CoreModal'
 import StartGame from './game/main'
 import { Game } from 'phaser'
-import { CORE_HALVES } from './game/constants'
+import { CoreStats } from './game/constants'
+import { CoreModal } from './CoreModal'
 
 function App() {
   const [open, setOpen] = useState(false)
@@ -23,12 +23,9 @@ function App() {
     }
   }, [])
 
-  const onClose = () => {
+  const onClose = (stats?: CoreStats) => {
     setOpen(false)
-    game.current?.events.emit('spawn-core', {
-      left: CORE_HALVES.green,
-      right: CORE_HALVES.blue,
-    })
+    game.current?.events.emit('spawn-core', stats)
     setTimeout(() => {
       game.current?.events.emit('start-level')
     }, 750)
@@ -39,18 +36,8 @@ function App() {
       id="app"
       className="flex-col flex overflow-hidden w-full h-screen justify-center items-center text-white"
     >
-      <div>
-        <div id="game-container"></div>
-      </div>
-      <div>
-        <CoreModal isOpen={open} onClose={onClose}>
-          <div className="text-black flex h-full gap-2 flex-1 justify-center items-center">
-            <button onClick={onClose}>Add core 1</button>
-            <button onClick={onClose}>Add core 2</button>
-            <button onClick={onClose}>Add core 3</button>
-          </div>
-        </CoreModal>
-      </div>
+      <div id="game-container"></div>
+      <CoreModal isOpen={open} onClose={onClose} />
     </div>
   )
 }

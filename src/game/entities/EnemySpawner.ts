@@ -21,6 +21,8 @@ export class EnemySpawner {
     this.allEnemiesSpawned &&
     this.sceneRef.enemies.getChildren().every((e) => e.getData('health') <= 0)
 
+  hasHasNextLevel = () => this.levelIndex < LEVELS.length - 1
+
   nextLevel = (): void => {
     this.levelEnded = false
     this.levelIndex++
@@ -50,7 +52,11 @@ export class EnemySpawner {
   }
 
   update(): void {
-    if (!this.levelEnded && this.getAllEnemiesDead()) {
+    if (
+      !this.levelEnded &&
+      this.getAllEnemiesDead() &&
+      this.hasHasNextLevel()
+    ) {
       this.levelEnded = true
       this.sceneRef.time.delayedCall(750, () => {
         this.sceneRef.game.events.emit('show-modal')
