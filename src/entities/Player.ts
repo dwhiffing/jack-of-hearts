@@ -62,6 +62,12 @@ export class Player extends Physics.Arcade.Sprite {
     this.updateAttachedItemsAndDepth()
   }
 
+  public takeDamage(amount: number) {
+    if (this.carriedCore) {
+      this.carriedCore.takeDamage(amount)
+    }
+  }
+
   private handlePlayerInput(enemies: Enemy[]): void {
     if (!this.body) return
 

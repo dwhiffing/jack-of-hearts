@@ -44,8 +44,6 @@ export class Game extends Scene {
       })
       .stop()
 
-    this.physics.add.collider(this.player, this.core)
-    this.physics.add.collider(this.enemies, this.core)
     this.physics.add.collider(this.enemies, this.enemies)
     this.time.addEvent({ delay: 2000, callback: this.spawnEnemy, loop: true })
     this.spawnEnemy()
@@ -55,7 +53,9 @@ export class Game extends Scene {
   update(_time: number, _delta: number): void {
     const enemies = this.enemies.getChildren() as Enemy[]
     this.player.update(enemies)
-    enemies.forEach((enemy) => enemy.moveTowards(this.core))
+    enemies.forEach((enemy) =>
+      enemy.update(this.player.carriedCore ? this.player : this.core),
+    )
     this.core.update()
   }
 
