@@ -3,13 +3,10 @@ import { EntityBase } from './EntityBase'
 
 export class Core extends EntityBase {
   constructor(scene: Game, x: number, y: number) {
-    super(scene, x, y, 'ui_heart_full.png')
+    super(scene, x, y, 100, 'ui_heart_full.png')
 
-    this.setSize(10, 4)
-      .setOffset(1.5, 6)
-      .setScale(4)
-      .setImmovable(true)
-      .setData('health', 100)
+    this.setSize(10, 4).setOffset(1.5, 6).setScale(4).setImmovable(true)
+    this.healthBar.setPosition(x - 20, y - 35)
   }
 
   public takeDamage(amount: number): void {
