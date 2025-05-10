@@ -8,6 +8,7 @@ export class EntityBase extends Physics.Arcade.Sprite {
   declare body: Physics.Arcade.Body
   public healthBar: HealthBar
   public shadow: Shadow
+  public shadowOffset: number
   public maxHealth: number
 
   constructor(

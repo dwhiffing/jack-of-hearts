@@ -1,4 +1,87 @@
 export const CAMERA_FADE = 750
+export type EnemyTypeEnum =
+  | 'imp'
+  | 'lizard'
+  | 'skele'
+  | 'goblin'
+  | 'chort'
+  | 'demon'
+  | 'orc'
+  | 'ogre'
+  | 'wogol'
+export type EnemyType = {
+  key: string
+  offsetX: number
+  offsetY: number
+  offsetHealth: number
+  offsetShadow: number
+}
+export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
+  demon: {
+    key: 'demon',
+    offsetX: 12,
+    offsetY: 20,
+    offsetHealth: -40,
+    offsetShadow: 55,
+  },
+  chort: {
+    key: 'chort',
+    offsetX: 4,
+    offsetY: 9,
+    offsetHealth: -30,
+    offsetShadow: 36,
+  },
+  orc: {
+    key: 'orc',
+    offsetX: 4,
+    offsetY: 7,
+    offsetHealth: -30,
+    offsetShadow: 35,
+  },
+  ogre: {
+    key: 'ogre',
+    offsetX: 12,
+    offsetY: 20,
+    offsetHealth: -40,
+    offsetShadow: 55,
+  },
+  goblin: {
+    key: 'goblin',
+    offsetX: 4,
+    offsetY: 4,
+    offsetHealth: -35,
+    offsetShadow: 25,
+  },
+  imp: {
+    key: 'imp',
+    offsetX: 4,
+    offsetY: 4,
+    offsetHealth: -35,
+    offsetShadow: 25,
+  },
+  lizard: {
+    key: 'lizard',
+    offsetX: 4,
+    offsetY: 14,
+    offsetHealth: -28,
+    offsetShadow: 42,
+  },
+  skele: {
+    key: 'skele',
+    offsetX: 4,
+    offsetY: 2,
+    offsetHealth: -35,
+    offsetShadow: 25,
+  },
+  wogol: {
+    key: 'wogol',
+    offsetX: 4,
+    offsetY: 9,
+    offsetHealth: -25,
+    offsetShadow: 35,
+  },
+}
+
 export const ANIMS = [
   {
     prefix: 'knight_m_idle_anim_f',
@@ -33,6 +116,134 @@ export const ANIMS = [
     repeat: -1,
   },
   {
+    prefix: 'lizard_m_run_anim_f',
+    key: 'lizard-idle',
+    start: 3,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'lizard_m_run_anim_f',
+    key: 'lizard-walk',
+    start: 0,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'imp_run_anim_f',
+    key: 'imp-idle',
+    start: 3,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'imp_run_anim_f',
+    key: 'imp-walk',
+    start: 0,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'goblin_run_anim_f',
+    key: 'goblin-idle',
+    start: 3,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'goblin_run_anim_f',
+    key: 'goblin-walk',
+    start: 0,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'ogre_run_anim_f',
+    key: 'ogre-idle',
+    start: 3,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'ogre_run_anim_f',
+    key: 'ogre-walk',
+    start: 0,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'orc_warrior_run_anim_f',
+    key: 'orc-idle',
+    start: 3,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'orc_warrior_run_anim_f',
+    key: 'orc-walk',
+    start: 0,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'chort_run_anim_f',
+    key: 'chort-idle',
+    start: 3,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'chort_run_anim_f',
+    key: 'chort-walk',
+    start: 0,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'big_demon_run_anim_f',
+    key: 'demon-idle',
+    start: 3,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'big_demon_run_anim_f',
+    key: 'demon-walk',
+    start: 0,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'wogol_run_anim_f',
+    key: 'wogol-idle',
+    start: 3,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
+    prefix: 'wogol_run_anim_f',
+    key: 'wogol-walk',
+    start: 0,
+    end: 3,
+    frameRate: 6,
+    repeat: -1,
+  },
+  {
     prefix: 'Slash3_color4_frame',
     key: 'slash-1',
     start: 1,
@@ -60,7 +271,7 @@ export const ANIMS = [
     prefix: 'Slash2_color4_frame',
     key: 'slash-4',
     start: 1,
-    end: 9,
+    end: 7,
     frameRate: 20,
     repeat: 0,
   },

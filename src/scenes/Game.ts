@@ -3,7 +3,7 @@ import { Player } from '../entities/Player'
 import { Core } from '../entities/Core'
 import { Enemy } from '../entities/Enemy'
 import { Hud } from '../entities/Hud'
-import { CAMERA_FADE } from '../constants'
+import { CAMERA_FADE, ENEMY_TYPES, EnemyTypeEnum } from '../constants'
 
 export class Game extends Scene {
   public player!: Player
@@ -60,7 +60,10 @@ export class Game extends Scene {
 
   spawnEnemy = (): void => {
     const enemy = this.enemies.get() as Enemy | null
-    enemy?.spawn()
+
+    enemy?.spawn(
+      Phaser.Math.RND.pick(Object.keys(ENEMY_TYPES)) as EnemyTypeEnum,
+    )
   }
 
   hitCallback = (core: Core, enemy: Enemy): void => {

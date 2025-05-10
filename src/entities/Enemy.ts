@@ -1,21 +1,26 @@
+import { ENEMY_TYPES, EnemyTypeEnum } from '../constants'
 import { Game } from '../scenes/Game'
 import { EntityBase } from './EntityBase'
 
 const SPEED = 50
 export class Enemy extends EntityBase {
   moveSpeed = SPEED
+  type: EnemyTypeEnum = 'skele'
   constructor(scene: Game, x: number, y: number) {
     super(scene, x, y, 2)
-    this.setSize(8, 12).setOffset(4, 2).setScale(3).setCollideWorldBounds(false)
+    this.setSize(8, 12).setScale(3).setCollideWorldBounds(false)
   }
 
-  public spawn() {
+  public spawn(type: EnemyTypeEnum) {
     const { x, y } = getEnemySpawn(
       this.sceneRef.camera.width,
       this.sceneRef.camera.height,
     )
     this.setPosition(x, y).setActive(true).setVisible(true)
-    this.play('skele-walk')
+
+    const { offsetX, offsetY } = ENEMY_TYPES[type]
+    this.type = type
+    this.play(`${type}-walk`).setOffset(offsetX, offsetY)
     this.body.setEnable(true)
   }
 
@@ -29,7 +34,7 @@ export class Enemy extends EntityBase {
     super.takeDamage(amount)
     if (!this.active) return
     this.moveSpeed = 0
-    this.play('skele-idle')
+    this.play(`${this.type}-idle`)
     this.sceneRef.time.delayedCall(1000, () => {
       this.moveSpeed = SPEED
     })
@@ -39,9 +44,10 @@ export class Enemy extends EntityBase {
     if (this.active && this.body && this.sceneRef.physics && target) {
       this.sceneRef.physics.moveToObject(this, target, this.moveSpeed)
       if (this.moveSpeed > 0) {
-        this.play('skele-walk', true)
-        this.healthBar.setPosition(this.x - 20, this.y - 35)
-        this.shadow.setPosition(this.x, this.y + 25)
+        this.play(`${this.type}-walk`, true)
+        const { offsetHealth, offsetShadow } = ENEMY_TYPES[this.type]
+        this.healthBar.setPosition(this.x - 20, this.y + offsetHealth)
+        this.shadow.setPosition(this.x, this.y + offsetShadow)
         this.setFlipX(this.body.velocity.x < 0)
         this.setDepth(this.body.position.y)
       }
