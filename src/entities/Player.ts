@@ -72,46 +72,46 @@ export class Player extends Physics.Arcade.Sprite {
   }
 
   private handleAttack(enemies: Enemy[]): void {
-    if (Input.Keyboard.JustDown(this.keySpace) && this._canAttack) {
-      this._canAttack = false
-      this._attackGraphics.clear()
-      this._attackGraphics.fillStyle(0xffff99, 0.4)
+    if (!Input.Keyboard.JustDown(this.keySpace) || !this._canAttack) return
 
-      const playerPos = new PhaserMath.Vector2(this.x, this.y)
-      const baseAngle = this._lastPlayerDirection.angle()
-      const startAngle = baseAngle - PLAYER_ATTACK_ARC_ANGLE / 2
-      const endAngle = baseAngle + PLAYER_ATTACK_ARC_ANGLE / 2
+    this._canAttack = false
+    this._attackGraphics.clear()
+    this._attackGraphics.fillStyle(0xffff99, 0.4)
 
-      this._attackGraphics.slice(
-        playerPos.x,
-        playerPos.y,
-        80,
-        startAngle,
-        endAngle,
-        false,
+    const playerPos = new PhaserMath.Vector2(this.x, this.y)
+    const baseAngle = this._lastPlayerDirection.angle()
+    const startAngle = baseAngle - PLAYER_ATTACK_ARC_ANGLE / 2
+    const endAngle = baseAngle + PLAYER_ATTACK_ARC_ANGLE / 2
+
+    this._attackGraphics.slice(
+      playerPos.x,
+      playerPos.y,
+      120,
+      startAngle,
+      endAngle,
+      false,
+    )
+    this._attackGraphics.fillPath()
+
+    enemies.forEach((enemy) => {
+      if (!enemy.active || !enemy.body || !enemy.takeDamage) return
+
+      const vecToEnemy = new PhaserMath.Vector2(
+        enemy.x - this.x,
+        enemy.y - this.y,
       )
-      this._attackGraphics.fillPath()
 
-      enemies.forEach((enemy) => {
-        if (!enemy.active || !enemy.body || !enemy.takeDamage) return
+      if (vecToEnemy.length() > 120) return
 
-        const vecToEnemy = new PhaserMath.Vector2(
-          enemy.x - this.x,
-          enemy.y - this.y,
-        )
+      const diffAngle = PhaserMath.Angle.Wrap(vecToEnemy.angle() - baseAngle)
+      if (Math.abs(diffAngle) <= PLAYER_ATTACK_ARC_ANGLE / 2) {
+        enemy.takeDamage(1)
+      }
+    })
 
-        if (vecToEnemy.length() > 80) return
-
-        const diffAngle = PhaserMath.Angle.Wrap(vecToEnemy.angle() - baseAngle)
-        if (Math.abs(diffAngle) <= PLAYER_ATTACK_ARC_ANGLE / 2) {
-          enemy.takeDamage(1)
-        }
-      })
-
-      this.sceneRef.time.delayedCall(350, () => {
-        this._canAttack = true
-        this._attackGraphics?.clear()
-      })
-    }
+    this.sceneRef.time.delayedCall(350, () => {
+      this._canAttack = true
+      this._attackGraphics?.clear()
+    })
   }
 }

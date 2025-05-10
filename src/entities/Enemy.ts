@@ -1,8 +1,9 @@
 import { Game } from '../scenes/Game'
 import { EntityBase } from './EntityBase'
 
+const SPEED = 50
 export class Enemy extends EntityBase {
-  moveSpeed = 50
+  moveSpeed = SPEED
   constructor(scene: Game, x: number, y: number) {
     super(scene, x, y)
     this.setSize(8, 12).setOffset(4, 2).setScale(3).setCollideWorldBounds(false)
@@ -19,7 +20,8 @@ export class Enemy extends EntityBase {
   }
 
   public destroy(fromScene?: boolean): void {
-    this.sceneRef.emitter.explode(10, this.x, this.y)
+    if (!this.sceneRef.isEnding)
+      this.sceneRef.emitter.explode(10, this.x, this.y)
     super.destroy(fromScene)
   }
 
@@ -29,7 +31,7 @@ export class Enemy extends EntityBase {
     this.moveSpeed = 0
     this.play('skele-idle')
     this.sceneRef.time.delayedCall(1000, () => {
-      this.moveSpeed = 50
+      this.moveSpeed = SPEED
     })
   }
 

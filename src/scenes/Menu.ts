@@ -1,4 +1,5 @@
 import { Scene, GameObjects } from 'phaser'
+import { CAMERA_FADE } from '../constants'
 
 export class Menu extends Scene {
   background: GameObjects.Image
@@ -19,8 +20,18 @@ export class Menu extends Scene {
       })
       .setOrigin(0.5)
 
+    this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
     this.input.once('pointerdown', () => {
-      this.scene.start('Game')
+      this.cameras.main.fade(
+        CAMERA_FADE,
+        0,
+        0,
+        0,
+        true,
+        (_: any, p: number) => {
+          if (p === 1) this.scene.start('Game')
+        },
+      )
     })
   }
 }

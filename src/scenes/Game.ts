@@ -3,6 +3,7 @@ import { Player } from '../entities/Player'
 import { Core } from '../entities/Core'
 import { Enemy } from '../entities/Enemy'
 import { Hud } from '../entities/Hud'
+import { CAMERA_FADE } from '../constants'
 
 export class Game extends Scene {
   public player!: Player
@@ -11,6 +12,7 @@ export class Game extends Scene {
   public camera!: Cameras.Scene2D.Camera
   public hud!: Hud
   public emitter!: Phaser.GameObjects.Particles.ParticleEmitter
+  public isEnding: boolean
 
   constructor() {
     super('Game')
@@ -20,6 +22,7 @@ export class Game extends Scene {
     this.camera = this.cameras.main
     const { width: w, height: h } = this.camera
 
+    this.isEnding = false
     this.core = new Core(this, w / 2, h / 2)
     this.player = new Player(this, w / 2, h / 2 + 120)
     this.enemies = this.physics.add.group({
@@ -46,6 +49,7 @@ export class Game extends Scene {
     this.physics.add.collider(this.player, this.core)
     this.time.addEvent({ delay: 2000, callback: this.spawnEnemy, loop: true })
     this.spawnEnemy()
+    this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
   }
 
   update(_time: number, _delta: number): void {
@@ -63,10 +67,13 @@ export class Game extends Scene {
     if (!enemy.active || !core.active) return
 
     core.takeDamage(10)
-    enemy.destroy()
+    enemy.takeDamage(1000)
   }
 
   triggerGameOver(): void {
-    this.scene.start('Menu')
+    this.isEnding = true
+    this.cameras.main.fade(CAMERA_FADE, 0, 0, 0, true, (_: any, p: number) => {
+      if (p === 1) this.scene.start('Menu')
+    })
   }
 }

@@ -1,3 +1,4 @@
+export const CAMERA_FADE = 750
 export const ANIMS = [
   {
     prefix: 'knight_m_idle_anim_f',
