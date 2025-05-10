@@ -3,7 +3,7 @@ import { Player } from '../entities/Player'
 import { Core } from '../entities/Core'
 import { Enemy } from '../entities/Enemy'
 import { Hud } from '../entities/Hud'
-import { CAMERA_FADE } from '../constants'
+import { CAMERA_FADE, LEVELS } from '../constants'
 
 export class Game extends Scene {
   public player!: Player
@@ -13,6 +13,8 @@ export class Game extends Scene {
   public hud!: Hud
   public emitter!: Phaser.GameObjects.Particles.ParticleEmitter
   public isEnding: boolean
+  public waveIndex: number
+  public levelIndex: number
 
   constructor() {
     super('Game')
@@ -30,6 +32,8 @@ export class Game extends Scene {
       runChildUpdate: false,
     })
 
+    this.waveIndex = 0
+    this.levelIndex = 0
     this.hud = new Hud(this)
 
     this.emitter = this.add
@@ -45,8 +49,7 @@ export class Game extends Scene {
       .stop()
 
     this.physics.add.collider(this.enemies, this.enemies)
-    this.time.addEvent({ delay: 2000, callback: this.spawnEnemy, loop: true })
-    this.spawnEnemy()
+    this.spawnWave()
     this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
   }
 
@@ -57,12 +60,23 @@ export class Game extends Scene {
       enemy.update(this.player.carriedCore ? this.player : this.core),
     )
     this.core.update()
+    if (this.enemies.getChildren().every((e) => e.getData('health') <= 0)) {
+      this.levelIndex++
+      this.waveIndex = 0
+      this.time.delayedCall(2000, this.spawnWave)
+    }
   }
 
-  spawnEnemy = (): void => {
-    const enemy = this.enemies.get() as Enemy | null
-
-    enemy?.spawn()
+  spawnWave = (): void => {
+    const level = LEVELS[this.levelIndex]
+    if (this.waveIndex < level.waves.length) {
+      const wave = level.waves[this.waveIndex++]
+      wave.enemies.forEach((enemyKey) => {
+        const enemy = this.enemies.get() as Enemy | null
+        enemy?.spawn(enemyKey)
+      })
+      this.time.delayedCall(5000, this.spawnWave)
+    }
   }
 
   triggerGameOver(): void {

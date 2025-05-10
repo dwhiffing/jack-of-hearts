@@ -16,6 +16,25 @@ export type EnemyType = {
   offsetHealth: number
   offsetShadow: number
 }
+
+type IWave = {
+  enemies: EnemyTypeEnum[]
+}
+type ILevel = {
+  waves: IWave[]
+}
+export const LEVELS: ILevel[] = [
+  {
+    waves: [
+      { enemies: ['imp', 'imp', 'imp'] },
+      { enemies: ['imp', 'imp', 'imp', 'imp', 'imp', 'imp'] },
+    ],
+  },
+  { waves: [{ enemies: ['chort', 'chort', 'chort'] }] },
+  { waves: [{ enemies: ['orc', 'orc'] }] },
+  { waves: [{ enemies: ['ogre'] }] },
+]
+
 export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
   demon: {
     key: 'demon',
