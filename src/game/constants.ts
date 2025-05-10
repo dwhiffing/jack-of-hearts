@@ -9,6 +9,24 @@ export type EnemyTypeEnum =
   | 'orc'
   | 'ogre'
   | 'wogol'
+export type PlayerStats = {
+  speed: number
+  damage: number
+  attackRate: number
+  attackRadius: number
+  dashDistance: number
+  dashDuration: number
+  dashCooldown: number
+}
+export const playerStats: PlayerStats = {
+  speed: 220,
+  damage: 1,
+  attackRate: 240,
+  attackRadius: 30,
+  dashDistance: 150,
+  dashDuration: 200,
+  dashCooldown: 700,
+}
 export type EnemyType = {
   key: string
   offsetX: number
@@ -35,6 +53,9 @@ export type EnemyStats = {
   attackType: EnemyAttackType
   speed: number
   health: number
+  collideDamage: number
+  stunDuration: number
+  stunSpeed: number
 }
 
 type IWave = {
@@ -129,14 +150,14 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
 
 export const ENEMY_ATTACK_TYPES: Record<string, EnemyAttackType> = {
   explode: {
-    attackDist: 50,
+    attackDist: 30,
     attackDelay: 750,
     launchSpeed: 200,
     isExplode: true,
     damage: 5,
   },
   slash: {
-    attackDist: 50,
+    attackDist: 30,
     attackDelay: 750,
     launchSpeed: 0,
     isExplode: false,
@@ -149,54 +170,81 @@ export const ENEMY_STATS: Record<string, EnemyStats> = {
     attackType: ENEMY_ATTACK_TYPES['slash'],
     health: 1,
     speed: 80,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
   demon: {
     key: 'demon',
     attackType: ENEMY_ATTACK_TYPES['explode'],
     health: 2,
     speed: 50,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
   chort: {
     key: 'chort',
     attackType: ENEMY_ATTACK_TYPES['explode'],
     health: 2,
     speed: 50,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
   orc: {
     key: 'orc',
     attackType: ENEMY_ATTACK_TYPES['explode'],
     health: 2,
     speed: 50,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
   ogre: {
     key: 'ogre',
     attackType: ENEMY_ATTACK_TYPES['explode'],
     health: 2,
     speed: 50,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
   goblin: {
     key: 'goblin',
     attackType: ENEMY_ATTACK_TYPES['explode'],
     health: 2,
     speed: 50,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
   lizard: {
     key: 'lizard',
     attackType: ENEMY_ATTACK_TYPES['slash'],
     health: 2,
     speed: 50,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
   skele: {
     key: 'skele',
     attackType: ENEMY_ATTACK_TYPES['slash'],
     health: 2,
     speed: 50,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
   wogol: {
     key: 'wogol',
     attackType: ENEMY_ATTACK_TYPES['slash'],
     health: 2,
     speed: 50,
+    collideDamage: 1,
+    stunDuration: 1000,
+    stunSpeed: 250,
   },
 }
 

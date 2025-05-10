@@ -53,6 +53,12 @@ export class Game extends Scene {
     this.hud = new Hud(this)
     this.emitter = new Emitter(this)
 
+    this.physics.add.overlap(
+      this.player,
+      this.enemies,
+      // @ts-ignore
+      this.playerEnemyCollide,
+    )
     this.physics.add.collider(this.enemies, this.enemies)
     this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
     this.game.events.on('start-level', this.enemySpawner.nextLevel)
@@ -72,6 +78,9 @@ export class Game extends Scene {
 
     this.player.update(enemies)
   }
+
+  playerEnemyCollide = (player: Player, enemy: Enemy) =>
+    player.takeDamage(enemy)
 
   triggerGameOver(): void {
     this.isGameOver = true

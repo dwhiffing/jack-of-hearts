@@ -4,11 +4,7 @@ import { Enemy } from '../entities/Enemy'
 import { Core } from './Core'
 import { Shadow } from './Shadow'
 import { Slash } from './Slash'
-
-const PLAYER_SPEED = 220
-const DASH_DISTANCE = 150
-const DASH_DURATION = 200
-const DASH_COOLDOWN = 700
+import { playerStats } from '../constants'
 
 export class Player extends Physics.Arcade.Sprite {
   protected sceneRef: Game
@@ -26,12 +22,13 @@ export class Player extends Physics.Arcade.Sprite {
   private attackKey: Input.Keyboard.Key
   private dashKey: Input.Keyboard.Key
   private isDashing: boolean = false
+  private isStunned: boolean = false
   private canDash: boolean = true
 
   constructor(scene: Game, x: number, y: number) {
     super(scene, x, y, 'sheet')
     this.sceneRef = scene
-    this.moveSpeed = PLAYER_SPEED
+    this.moveSpeed = this.stats.speed
     scene.add.existing(this)
     scene.physics.add.existing(this)
 
@@ -40,6 +37,8 @@ export class Player extends Physics.Arcade.Sprite {
       .setOffset(4, 20)
       .setCollideWorldBounds(true)
       .setScale(3)
+      .setDamping(true)
+      .setDrag(0.1, 0.1)
 
     this._lastAngle = new PhaserMath.Vector2(1, 0)
     this._canAttack = true
@@ -62,14 +61,28 @@ export class Player extends Physics.Arcade.Sprite {
     this.updateAttachedItemsAndDepth()
   }
 
-  public takeDamage(amount: number) {
+  public takeDamage(enemy: Enemy) {
+    const amount = enemy.stats.attackType.damage
+    if (this.isDashing) return
     if (this.carriedCore) {
       this.carriedCore.takeDamage(amount)
     }
+    this.sceneRef.physics.moveToObject(
+      this,
+      enemy ?? this,
+      -enemy.stats.stunSpeed,
+    )
+
+    this.setAlpha(0.5)
+    this.isStunned = true
+    this.sceneRef.time.delayedCall(enemy.stats.stunDuration, () => {
+      this.setAlpha(1)
+      this.isStunned = false
+    })
   }
 
   private handlePlayerInput(enemies: Enemy[]): void {
-    if (!this.body) return
+    if (!this.body || this.isStunned) return
 
     if (this.isDashing) {
       this.play('player-walk', true)
@@ -102,13 +115,15 @@ export class Player extends Physics.Arcade.Sprite {
     }
     dashDirection.normalize()
 
-    const dashSpeed = DASH_DISTANCE / (DASH_DURATION / 1000)
+    const dur = this.stats.dashDuration
+    const cooldown = this.stats.dashCooldown
+    const dashSpeed = this.stats.dashDistance / (dur / 1000)
     this.setVelocity(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed)
 
     if (dashDirection.x !== 0) this.setFlipX(dashDirection.x < 0)
     this.play('player-walk', true)
-    this.scene.time.delayedCall(DASH_DURATION, this.stopDash)
-    this.scene.time.delayedCall(DASH_COOLDOWN, () => (this.canDash = true))
+    this.scene.time.delayedCall(dur, this.stopDash)
+    this.scene.time.delayedCall(cooldown, () => (this.canDash = true))
   }
 
   private stopDash = (): void => {
@@ -190,21 +205,26 @@ export class Player extends Physics.Arcade.Sprite {
         : new PhaserMath.Vector2(this.flipX ? -1 : 1, 0)
     angle.normalize()
 
-    this.slashEffect.performAttack(attackPos, angle)
+    const rad = this.stats.attackRadius
+    this.slashEffect.performAttack(attackPos, angle, rad)
 
     enemies.forEach((enemy) => {
       if (!enemy.active || !enemy.body || !enemy.takeDamage) return
 
       const enemyPos = new PhaserMath.Vector2(enemy.x, enemy.y)
-      if (this.slashEffect.isTargetHit(enemyPos, attackPos, angle)) {
-        enemy.takeDamage(1)
+      if (this.slashEffect.isTargetHit(enemyPos, attackPos, angle, rad)) {
+        enemy.takeDamage(this.stats.damage)
       }
     })
 
-    this.sceneRef.time.delayedCall(350, () => {
+    this.sceneRef.time.delayedCall(this.stats.attackRate, () => {
       this._canAttack = true
-      this.moveSpeed = PLAYER_SPEED
+      this.moveSpeed = this.stats.speed
       this.slashEffect.cleanup()
     })
+  }
+
+  get stats() {
+    return playerStats
   }
 }

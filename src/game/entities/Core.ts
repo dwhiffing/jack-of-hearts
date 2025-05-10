@@ -1,5 +1,6 @@
 import { CoreStats } from '../constants'
 import { Game } from '../scenes/Game'
+import { Enemy } from './Enemy'
 import { EntityBase } from './EntityBase'
 
 export class Core extends EntityBase {
@@ -47,6 +48,14 @@ export class Core extends EntityBase {
   public update() {
     super.update()
     this.setPosition(this.x, this.y)
+  }
+
+  public takeDamage(amount: number | Enemy): void {
+    if (typeof amount !== 'number') {
+      amount = amount.stats.attackType.damage
+    }
+
+    super.takeDamage(amount)
   }
 
   public destroy(fromScene?: boolean): void {

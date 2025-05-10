@@ -57,7 +57,7 @@ export class Enemy extends EntityBase {
   }
 
   public attack(target: Core | Player) {
-    const { launchSpeed, attackDist, attackDelay, isExplode, damage } =
+    const { launchSpeed, attackDist, attackDelay, isExplode } =
       this.stats.attackType
 
     if (this.isAttacking) return
@@ -78,7 +78,7 @@ export class Enemy extends EntityBase {
       if (this.getHealth() <= 0 || dist > attackDist) return
 
       this.sceneRef.physics.moveToObject(target, this, -launchSpeed)
-      target.takeDamage(damage)
+      target.takeDamage(this)
       if (isExplode) this.takeDamage(9999)
     })
   }
@@ -93,8 +93,8 @@ export class Enemy extends EntityBase {
     }
   }
 
-  public takeDamage(amount: number): void {
-    if (this.isDying) return
+  public takeDamage(amount: number | Enemy): void {
+    if (this.isDying || typeof amount !== 'number') return
 
     super.takeDamage(amount)
     if (!this.active) return

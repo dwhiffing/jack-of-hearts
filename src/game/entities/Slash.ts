@@ -28,6 +28,8 @@ export class Slash {
   public performAttack(
     playerPosition: PhaserMath.Vector2,
     attackDirection: PhaserMath.Vector2,
+    radius = 60,
+    range = 10,
   ): void {
     this.debugGraphics.clear()
     this.debugGraphics.fillStyle(0xffff99, DEBUG_ALPHA)
@@ -37,8 +39,8 @@ export class Slash {
 
     const dir = attackDirection.clone().normalize()
 
-    const spriteOffsetX = dir.x * SLASH_BASE_OFFSET
-    const spriteOffsetY = dir.y * SLASH_BASE_OFFSET
+    const spriteOffsetX = dir.x * (SLASH_BASE_OFFSET + range)
+    const spriteOffsetY = dir.y * (SLASH_BASE_OFFSET + range)
 
     this.slashSprite.setPosition(
       playerPosition.x + spriteOffsetX,
@@ -48,12 +50,14 @@ export class Slash {
     const angleInRadians = dir.angle()
     let angleInDegrees = PhaserMath.RadToDeg(angleInRadians)
     angleInDegrees += SLASH_ANGLE_OFFSET
-    this.slashSprite.setAngle(angleInDegrees)
+    const f = radius / 40
+    this.slashSprite.setAngle(angleInDegrees).setScale(f)
+    const offset = 10 + range + f * 20
 
     this.debugGraphics.arc(
-      playerPosition.x + dir.x * 40,
-      playerPosition.y + SLASH_Y_OFFSET + dir.y * 40,
-      60,
+      playerPosition.x + dir.x * offset,
+      playerPosition.y + SLASH_Y_OFFSET + dir.y * offset,
+      radius,
       0,
       360,
     )
@@ -65,11 +69,15 @@ export class Slash {
     targetPosition: PhaserMath.Vector2,
     attackerPosition: PhaserMath.Vector2,
     attackDirection: PhaserMath.Vector2,
+    radius = 60,
+    range = 10,
   ): boolean {
+    const f = radius / 40
+    const offset = 10 + range + f * 20
     const circle = new Phaser.Geom.Circle(
-      attackerPosition.x + attackDirection.x * 40,
-      attackerPosition.y + SLASH_Y_OFFSET + attackDirection.y * 40,
-      60,
+      attackerPosition.x + attackDirection.x * offset,
+      attackerPosition.y + SLASH_Y_OFFSET + attackDirection.y * offset,
+      radius,
     )
     return Phaser.Geom.Circle.ContainsPoint(circle, targetPosition)
   }
