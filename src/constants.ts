@@ -20,65 +20,120 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
   demon: {
     key: 'demon',
     offsetX: 12,
-    offsetY: 20,
+    offsetY: 20 + 8,
     offsetHealth: -40,
     offsetShadow: 55,
   },
   chort: {
     key: 'chort',
     offsetX: 4,
-    offsetY: 9,
+    offsetY: 9 + 8,
     offsetHealth: -30,
     offsetShadow: 36,
   },
   orc: {
     key: 'orc',
     offsetX: 4,
-    offsetY: 7,
+    offsetY: 7 + 8,
     offsetHealth: -30,
     offsetShadow: 35,
   },
   ogre: {
     key: 'ogre',
     offsetX: 12,
-    offsetY: 20,
+    offsetY: 20 + 8,
     offsetHealth: -40,
     offsetShadow: 55,
   },
   goblin: {
     key: 'goblin',
     offsetX: 4,
-    offsetY: 4,
+    offsetY: 4 + 8,
     offsetHealth: -35,
     offsetShadow: 25,
   },
   imp: {
     key: 'imp',
     offsetX: 4,
-    offsetY: 4,
+    offsetY: 4 + 8,
     offsetHealth: -35,
     offsetShadow: 25,
   },
   lizard: {
     key: 'lizard',
     offsetX: 4,
-    offsetY: 14,
+    offsetY: 14 + 8,
     offsetHealth: -28,
     offsetShadow: 42,
   },
   skele: {
     key: 'skele',
     offsetX: 4,
-    offsetY: 2,
+    offsetY: 2 + 8,
     offsetHealth: -35,
     offsetShadow: 25,
   },
   wogol: {
     key: 'wogol',
     offsetX: 4,
-    offsetY: 9,
+    offsetY: 9 + 8,
     offsetHealth: -25,
     offsetShadow: 35,
+  },
+}
+
+export const ENEMY_ATTACK_TYPES = {
+  explode: {
+    attackDist: 50,
+    attackDelay: 750,
+    launchSpeed: 200,
+    isExplode: true,
+    damage: 5,
+  },
+  slash: {
+    attackDist: 50,
+    attackDelay: 750,
+    launchSpeed: 0,
+    isExplode: false,
+    damage: 5,
+  },
+}
+export const ENEMY_STATS = {
+  demon: {
+    key: 'demon',
+    attackType: ENEMY_ATTACK_TYPES['explode'],
+  },
+  chort: {
+    key: 'chort',
+    attackType: ENEMY_ATTACK_TYPES['explode'],
+  },
+  orc: {
+    key: 'orc',
+    attackType: ENEMY_ATTACK_TYPES['explode'],
+  },
+  ogre: {
+    key: 'ogre',
+    attackType: ENEMY_ATTACK_TYPES['explode'],
+  },
+  goblin: {
+    key: 'goblin',
+    attackType: ENEMY_ATTACK_TYPES['explode'],
+  },
+  imp: {
+    key: 'imp',
+    attackType: ENEMY_ATTACK_TYPES['slash'],
+  },
+  lizard: {
+    key: 'lizard',
+    attackType: ENEMY_ATTACK_TYPES['slash'],
+  },
+  skele: {
+    key: 'skele',
+    attackType: ENEMY_ATTACK_TYPES['slash'],
+  },
+  wogol: {
+    key: 'wogol',
+    attackType: ENEMY_ATTACK_TYPES['slash'],
   },
 }
 

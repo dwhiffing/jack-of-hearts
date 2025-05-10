@@ -6,6 +6,7 @@ export class Core extends EntityBase {
     super(scene, x, y, 100, 'ui_heart_full.png')
 
     this.setSize(10, 4).setOffset(1.5, 6).setScale(4).setImmovable(true)
+    this.setDamping(true).setCollideWorldBounds(true).setDrag(0.05, 0.05)
     this.setPosition(x, y)
   }
 
@@ -15,6 +16,11 @@ export class Core extends EntityBase {
     this.shadow?.setPosition(x, y + 29)
     this.setDepth(this.body?.position.y)
     return this
+  }
+
+  public update() {
+    super.update()
+    this.setPosition(this.x, this.y)
   }
 
   public destroy(fromScene?: boolean): void {

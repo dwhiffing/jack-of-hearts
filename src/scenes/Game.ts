@@ -3,7 +3,7 @@ import { Player } from '../entities/Player'
 import { Core } from '../entities/Core'
 import { Enemy } from '../entities/Enemy'
 import { Hud } from '../entities/Hud'
-import { CAMERA_FADE, ENEMY_TYPES, EnemyTypeEnum } from '../constants'
+import { CAMERA_FADE } from '../constants'
 
 export class Game extends Scene {
   public player!: Player
@@ -44,9 +44,9 @@ export class Game extends Scene {
       })
       .stop()
 
-    // @ts-ignore
-    this.physics.add.overlap(this.enemies, this.core, this.hitCallback)
     this.physics.add.collider(this.player, this.core)
+    this.physics.add.collider(this.enemies, this.core)
+    this.physics.add.collider(this.enemies, this.enemies)
     this.time.addEvent({ delay: 2000, callback: this.spawnEnemy, loop: true })
     this.spawnEnemy()
     this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
@@ -56,21 +56,13 @@ export class Game extends Scene {
     const enemies = this.enemies.getChildren() as Enemy[]
     this.player.update(enemies)
     enemies.forEach((enemy) => enemy.moveTowards(this.core))
+    this.core.update()
   }
 
   spawnEnemy = (): void => {
     const enemy = this.enemies.get() as Enemy | null
 
-    enemy?.spawn(
-      Phaser.Math.RND.pick(Object.keys(ENEMY_TYPES)) as EnemyTypeEnum,
-    )
-  }
-
-  hitCallback = (core: Core, enemy: Enemy): void => {
-    if (!enemy.active || !core.active) return
-
-    core.takeDamage(10)
-    enemy.takeDamage(1000)
+    enemy?.spawn()
   }
 
   triggerGameOver(): void {
