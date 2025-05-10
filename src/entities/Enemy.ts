@@ -2,7 +2,7 @@ import { ENEMY_TYPES, EnemyTypeEnum } from '../constants'
 import { Game } from '../scenes/Game'
 import { EntityBase } from './EntityBase'
 
-const SPEED = 50
+const SPEED = 70
 export class Enemy extends EntityBase {
   moveSpeed = SPEED
   type: EnemyTypeEnum = 'skele'
@@ -11,7 +11,11 @@ export class Enemy extends EntityBase {
     this.setSize(8, 12).setScale(3).setCollideWorldBounds(false)
   }
 
-  public spawn(type: EnemyTypeEnum) {
+  public spawn(
+    type: EnemyTypeEnum = Phaser.Math.RND.pick(
+      Object.keys(ENEMY_TYPES),
+    ) as EnemyTypeEnum,
+  ) {
     const { x, y } = getEnemySpawn(
       this.sceneRef.camera.width,
       this.sceneRef.camera.height,
@@ -34,7 +38,7 @@ export class Enemy extends EntityBase {
     super.takeDamage(amount)
     if (!this.active) return
     this.moveSpeed = 0
-    this.play(`${this.type}-idle`)
+    this.play(`${this.type}-stop`)
     this.sceneRef.time.delayedCall(1000, () => {
       this.moveSpeed = SPEED
     })
