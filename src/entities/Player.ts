@@ -2,6 +2,7 @@ import { Physics, Math as PhaserMath, GameObjects, Input } from 'phaser'
 import { Game } from '../scenes/Game'
 import { Enemy } from '../entities/Enemy'
 import { Core } from './Core'
+import { Shadow } from './Shadow'
 const PLAYER_ATTACK_ARC_ANGLE: number = Math.PI / 1.8
 const PLAYER_SPEED = 220
 
@@ -10,6 +11,7 @@ export class Player extends Physics.Arcade.Sprite {
   private _lastPlayerDirection: PhaserMath.Vector2
   private _canAttack: boolean
   public carriedCore?: Core
+  public shadow: Shadow
   private _attackGraphics: GameObjects.Graphics
   private moveSpeed: number
 
@@ -35,6 +37,7 @@ export class Player extends Physics.Arcade.Sprite {
     this._lastPlayerDirection = new PhaserMath.Vector2(1, 0)
     this._canAttack = true
     this._attackGraphics = scene.add.graphics()
+    this.shadow = new Shadow(this.sceneRef, x, y, 40, 4)
 
     if (!scene.input || !scene.input.keyboard) {
       throw new Error('Keyboard missing')
@@ -56,6 +59,7 @@ export class Player extends Physics.Arcade.Sprite {
 
     if (this.carriedCore) {
       this.carriedCore.setPosition(this.x, this.y - 30)
+      this.carriedCore?.setDepth(this.y + 20)
     }
 
     this.setVelocity(0)
@@ -73,7 +77,7 @@ export class Player extends Physics.Arcade.Sprite {
       this.moveSpeed = this.carriedCore ? PLAYER_SPEED / 4 : PLAYER_SPEED
       const s = this.moveSpeed
       this.setVelocity(currentMovement.x * s, currentMovement.y * s)
-
+      this.shadow.setPosition(this.x, this.y + 44)
       this._lastPlayerDirection = currentMovement.clone()
       this.setFlipX(currentMovement.x === -1)
       this.play('player-walk', true)
@@ -90,15 +94,18 @@ export class Player extends Physics.Arcade.Sprite {
     // check if player is near core, if so, pick it up
     if (
       !this.carriedCore &&
-      Phaser.Math.Distance.BetweenPoints(this, this.sceneRef.core) < 10
+      Phaser.Math.Distance.BetweenPoints(this, this.sceneRef.core) < 50
     ) {
       this.carriedCore = this.sceneRef.core
+      this.carriedCore.shadow.setAlpha(0)
+
       return
     }
 
     // if we have a core, drop it
     if (this.carriedCore) {
       this.carriedCore?.setPosition(this.x, this.y)
+      this.carriedCore.shadow.setAlpha(1)
       this.carriedCore = undefined
       return
     }

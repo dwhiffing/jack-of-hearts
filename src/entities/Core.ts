@@ -19,6 +19,7 @@ export class Core extends EntityBase {
   public setPosition(x: number, y: number) {
     super.setPosition(x, y)
     this.healthBar?.setPosition(x - 20, y - 35)
+    this.shadow?.setPosition(x, y + 29)
     this.setDepth(this.body?.position.y)
     return this
   }

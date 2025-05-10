@@ -41,6 +41,7 @@ export class Enemy extends EntityBase {
       if (this.moveSpeed > 0) {
         this.play('skele-walk', true)
         this.healthBar.setPosition(this.x - 20, this.y - 35)
+        this.shadow.setPosition(this.x, this.y + 25)
         this.setFlipX(this.body.velocity.x < 0)
         this.setDepth(this.body.position.y)
       }
