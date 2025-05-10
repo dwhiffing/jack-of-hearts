@@ -25,11 +25,14 @@ export class EnemySpawner {
     this.nextWave()
   }
 
-  nextWave = (): void => {
+  nextWave = async () => {
     const level = LEVELS[this.levelIndex]
     const wave = level?.waves[this.waveIndex++]
     if (level && wave) {
-      wave.enemies.forEach(this.spawnEnemy)
+      wave.enemies.forEach((type, i) => {
+        this.sceneRef.time.delayedCall(1000 * i, () => this.spawnEnemy(type))
+      })
+
       this.sceneRef.time.delayedCall(5000, this.nextWave)
     }
   }

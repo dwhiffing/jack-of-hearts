@@ -131,6 +131,12 @@ export const ENEMY_ATTACK_TYPES: Record<string, EnemyAttackType> = {
   },
 }
 export const ENEMY_STATS: Record<string, EnemyStats> = {
+  imp: {
+    key: 'imp',
+    attackType: ENEMY_ATTACK_TYPES['slash'],
+    health: 1,
+    speed: 80,
+  },
   demon: {
     key: 'demon',
     attackType: ENEMY_ATTACK_TYPES['explode'],
@@ -158,12 +164,6 @@ export const ENEMY_STATS: Record<string, EnemyStats> = {
   goblin: {
     key: 'goblin',
     attackType: ENEMY_ATTACK_TYPES['explode'],
-    health: 2,
-    speed: 50,
-  },
-  imp: {
-    key: 'imp',
-    attackType: ENEMY_ATTACK_TYPES['slash'],
     health: 2,
     speed: 50,
   },
