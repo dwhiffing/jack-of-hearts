@@ -3,10 +3,15 @@ import { EntityBase } from './EntityBase'
 
 export class Core extends EntityBase {
   constructor(scene: Game, x: number, y: number) {
-    super(scene, x, y, 100, 'ui_heart_full.png')
+    super(scene, x, y, 'ui_heart_full.png')
 
-    this.setSize(10, 4).setOffset(1.5, 6).setScale(4).setImmovable(true)
-    this.setDamping(true).setCollideWorldBounds(true).setDrag(0.05, 0.05)
+    this.setSize(10, 4).setOffset(1.5, 6).setScale(4).setPushable(false)
+    this.setPosition(x, y)
+  }
+
+  public spawn(x: number, y: number) {
+    this.setMaxHealth(100)
+    this.setDamping(true).setCollideWorldBounds(true).setDrag(0.01, 0.01)
     this.setPosition(x, y)
   }
 

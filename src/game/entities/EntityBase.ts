@@ -11,19 +11,11 @@ export class EntityBase extends Physics.Arcade.Sprite {
   public shadowOffset: number
   public maxHealth: number
 
-  constructor(
-    scene: Game,
-    x: number,
-    y: number,
-    maxHealth: number,
-    frame?: string,
-  ) {
+  constructor(scene: Game, x: number, y: number, frame?: string) {
     super(scene, x, y, 'sheet', frame)
     this.sceneRef = scene
     scene.add.existing(this)
     scene.physics.add.existing(this)
-    this.setData('health', maxHealth)
-    this.maxHealth = maxHealth
 
     this.healthBar = new HealthBar(this.sceneRef, x, y, 40, 100, 6)
     this.shadow = new Shadow(this.sceneRef, x, y, 40, 4)
@@ -34,6 +26,11 @@ export class EntityBase extends Physics.Arcade.Sprite {
 
   public getHealth(): number {
     return this.getData('health') as number
+  }
+
+  public setMaxHealth(amount: number): void {
+    this.maxHealth = amount
+    this.setHealth(amount)
   }
 
   public setHealth(amount: number): void {

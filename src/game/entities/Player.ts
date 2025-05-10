@@ -163,14 +163,20 @@ export class Player extends Physics.Arcade.Sprite {
       return
     }
 
-    if (
-      !this.carriedCore &&
-      this.sceneRef.core &&
-      PhaserMath.Distance.BetweenPoints(this, this.sceneRef.core) < 35
-    ) {
-      this.carriedCore = this.sceneRef.core
-      this.carriedCore.shadow.setAlpha(0)
-      return
+    if (!this.carriedCore) {
+      const cores = this.sceneRef.cores.getChildren() as Core[]
+      cores.forEach((core) => {
+        if (
+          !this.carriedCore &&
+          core &&
+          PhaserMath.Distance.BetweenPoints(this, core) < 35
+        ) {
+          this.carriedCore = core
+          this.carriedCore.shadow.setAlpha(0)
+          return
+        }
+      })
+      if (this.carriedCore) return
     }
 
     if (this.carriedCore) {

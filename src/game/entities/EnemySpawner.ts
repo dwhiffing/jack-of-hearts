@@ -7,15 +7,18 @@ export class EnemySpawner {
   public waveIndex: number
   public levelIndex: number
   public levelEnded: boolean
+  public allEnemiesSpawned: boolean
 
   constructor(sceneRef: Game) {
     this.sceneRef = sceneRef
     this.waveIndex = 0
     this.levelIndex = 0
     this.levelEnded = false
+    this.allEnemiesSpawned = false
   }
 
   getAllEnemiesDead = () =>
+    this.allEnemiesSpawned &&
     this.sceneRef.enemies.getChildren().every((e) => e.getData('health') <= 0)
 
   nextLevel = (): void => {
@@ -29,8 +32,12 @@ export class EnemySpawner {
     const level = LEVELS[this.levelIndex]
     const wave = level?.waves[this.waveIndex++]
     if (level && wave) {
+      this.allEnemiesSpawned = false
       wave.enemies.forEach((type, i) => {
-        this.sceneRef.time.delayedCall(1000 * i, () => this.spawnEnemy(type))
+        this.sceneRef.time.delayedCall(wave.spawnRate * i, () => {
+          this.spawnEnemy(type)
+          if (i === wave.enemies.length - 1) this.allEnemiesSpawned = true
+        })
       })
 
       this.sceneRef.time.delayedCall(5000, this.nextWave)
@@ -45,7 +52,9 @@ export class EnemySpawner {
   update(): void {
     if (!this.levelEnded && this.getAllEnemiesDead()) {
       this.levelEnded = true
-      this.sceneRef.game.events.emit('show-modal')
+      this.sceneRef.time.delayedCall(750, () => {
+        this.sceneRef.game.events.emit('show-modal')
+      })
     }
   }
 }

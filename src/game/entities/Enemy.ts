@@ -7,10 +7,11 @@ import { Player } from './Player'
 export class Enemy extends EntityBase {
   type: EnemyTypeEnum = 'skele'
   isAttacking = false
+  isDying = false
   moveMulti: number
 
   constructor(scene: Game, x: number, y: number) {
-    super(scene, x, y, 2)
+    super(scene, x, y)
     this.setSize(8, 8).setScale(3).setCollideWorldBounds(false)
   }
 
@@ -23,15 +24,24 @@ export class Enemy extends EntityBase {
     const { x, y } = getEnemySpawn(width, height)
     this.setPosition(x, y).setActive(true).setVisible(true)
 
-    const { offsetX, offsetY } = this.spriteType
     this.type = type
+    const { offsetX, offsetY } = this.spriteType
     this.moveMulti = 1
+    this.isDying = false
+    this.alpha = 1
+    this.setMaxHealth(this.stats.health)
     this.play(`${type}-walk`).setOffset(offsetX, offsetY)
     this.body.setEnable(true)
   }
 
   public update(): void {
-    if (!this.active || !this.body || !this.sceneRef.physics || !this.target)
+    if (
+      !this.active ||
+      !this.body ||
+      !this.sceneRef.physics ||
+      !this.target ||
+      this.isDying
+    )
       return
 
     const dist = Phaser.Math.Distance.BetweenPoints(this, this.target)
@@ -53,7 +63,8 @@ export class Enemy extends EntityBase {
     if (this.isAttacking) return
 
     this.isAttacking = true
-    this.body.setVelocity(0, 0).setImmovable(true)
+    this.body.setVelocity(0, 0)
+    this.setPushable(false)
     this.play(`${this.type}-idle`)
 
     // when complete, check if still alive, apply damage and reset
@@ -62,7 +73,7 @@ export class Enemy extends EntityBase {
       if (!this.body || !target.body) return
 
       this.isAttacking = false
-      this.body.setImmovable(false)
+      this.setPushable(true)
 
       if (this.getHealth() <= 0 || dist > attackDist) return
 
@@ -83,6 +94,8 @@ export class Enemy extends EntityBase {
   }
 
   public takeDamage(amount: number): void {
+    if (this.isDying) return
+
     super.takeDamage(amount)
     if (!this.active) return
 
@@ -92,14 +105,30 @@ export class Enemy extends EntityBase {
   }
 
   public destroy(fromScene?: boolean): void {
+    this.isDying = true
+    this.setVelocity(0)
     if (!this.sceneRef.isGameOver) this.sceneRef.emitter.explode(this.x, this.y)
-    super.destroy(fromScene)
+    this.sceneRef.tweens.add({
+      targets: [this],
+      alpha: 0,
+      duration: 500,
+      onComplete: () => super.destroy(fromScene),
+    })
   }
 
   get target() {
     return this.sceneRef.player.carriedCore
       ? this.sceneRef.player
-      : this.sceneRef.core
+      : this.closestCore
+  }
+
+  get closestCore() {
+    const cores = this.sceneRef.cores.getChildren() as Core[]
+    return cores.sort((a, b) => {
+      const aDist = Phaser.Math.Distance.BetweenPoints(this, a)
+      const bDist = Phaser.Math.Distance.BetweenPoints(this, b)
+      return aDist - bDist
+    })[0]
   }
 
   get spriteType() {

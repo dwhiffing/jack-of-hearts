@@ -23,8 +23,11 @@ function App() {
   }, [])
 
   const onClose = () => {
-    game.current?.events.emit('start-level', () => setOpen(true))
     setOpen(false)
+    game.current?.events.emit('spawn-core')
+    setTimeout(() => {
+      game.current?.events.emit('start-level')
+    }, 750)
   }
 
   return (

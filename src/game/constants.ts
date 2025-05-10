@@ -32,20 +32,16 @@ export type EnemyStats = {
 
 type IWave = {
   enemies: EnemyTypeEnum[]
+  spawnRate: number
 }
 type ILevel = {
   waves: IWave[]
 }
 export const LEVELS: ILevel[] = [
-  {
-    waves: [
-      { enemies: ['imp', 'imp', 'imp'] },
-      // { enemies: ['imp', 'imp', 'imp', 'imp', 'imp', 'imp'] },
-    ],
-  },
-  { waves: [{ enemies: ['chort', 'chort', 'chort'] }] },
-  { waves: [{ enemies: ['orc', 'orc'] }] },
-  { waves: [{ enemies: ['ogre'] }] },
+  { waves: [{ spawnRate: 1500, enemies: ['imp', 'imp', 'imp'] }] },
+  { waves: [{ spawnRate: 1500, enemies: ['chort', 'chort', 'chort'] }] },
+  { waves: [{ spawnRate: 1500, enemies: ['orc', 'orc'] }] },
+  { waves: [{ spawnRate: 1500, enemies: ['ogre'] }] },
 ]
 
 export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
