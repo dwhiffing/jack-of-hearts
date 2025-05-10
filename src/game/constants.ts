@@ -16,6 +16,19 @@ export type EnemyType = {
   offsetHealth: number
   offsetShadow: number
 }
+export type EnemyAttackType = {
+  attackDist: number
+  attackDelay: number
+  launchSpeed: number
+  isExplode: boolean
+  damage: number
+}
+export type EnemyStats = {
+  key: string
+  attackType: EnemyAttackType
+  speed: number
+  health: number
+}
 
 type IWave = {
   enemies: EnemyTypeEnum[]
@@ -27,7 +40,7 @@ export const LEVELS: ILevel[] = [
   {
     waves: [
       { enemies: ['imp', 'imp', 'imp'] },
-      { enemies: ['imp', 'imp', 'imp', 'imp', 'imp', 'imp'] },
+      // { enemies: ['imp', 'imp', 'imp', 'imp', 'imp', 'imp'] },
     ],
   },
   { waves: [{ enemies: ['chort', 'chort', 'chort'] }] },
@@ -101,7 +114,7 @@ export const ENEMY_TYPES: Record<EnemyTypeEnum, EnemyType> = {
   },
 }
 
-export const ENEMY_ATTACK_TYPES = {
+export const ENEMY_ATTACK_TYPES: Record<string, EnemyAttackType> = {
   explode: {
     attackDist: 50,
     attackDelay: 750,
@@ -117,42 +130,60 @@ export const ENEMY_ATTACK_TYPES = {
     damage: 5,
   },
 }
-export const ENEMY_STATS = {
+export const ENEMY_STATS: Record<string, EnemyStats> = {
   demon: {
     key: 'demon',
     attackType: ENEMY_ATTACK_TYPES['explode'],
+    health: 2,
+    speed: 50,
   },
   chort: {
     key: 'chort',
     attackType: ENEMY_ATTACK_TYPES['explode'],
+    health: 2,
+    speed: 50,
   },
   orc: {
     key: 'orc',
     attackType: ENEMY_ATTACK_TYPES['explode'],
+    health: 2,
+    speed: 50,
   },
   ogre: {
     key: 'ogre',
     attackType: ENEMY_ATTACK_TYPES['explode'],
+    health: 2,
+    speed: 50,
   },
   goblin: {
     key: 'goblin',
     attackType: ENEMY_ATTACK_TYPES['explode'],
+    health: 2,
+    speed: 50,
   },
   imp: {
     key: 'imp',
     attackType: ENEMY_ATTACK_TYPES['slash'],
+    health: 2,
+    speed: 50,
   },
   lizard: {
     key: 'lizard',
     attackType: ENEMY_ATTACK_TYPES['slash'],
+    health: 2,
+    speed: 50,
   },
   skele: {
     key: 'skele',
     attackType: ENEMY_ATTACK_TYPES['slash'],
+    health: 2,
+    speed: 50,
   },
   wogol: {
     key: 'wogol',
     attackType: ENEMY_ATTACK_TYPES['slash'],
+    health: 2,
+    speed: 50,
   },
 }
 

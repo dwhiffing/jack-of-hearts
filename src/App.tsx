@@ -1,9 +1,31 @@
-import { useRef } from 'react'
-import { PhaserGame } from './PhaserGame'
+import { useLayoutEffect, useRef, useState } from 'react'
+import { CoreModal } from './CoreModal'
+import StartGame from './game/main'
+import { Game } from 'phaser'
 
 function App() {
-  //  References to the PhaserGame component (game and scene are exposed)
-  const phaserRef = useRef(undefined)
+  const [open, setOpen] = useState(false)
+
+  const game = useRef<Game | undefined>(undefined)
+
+  useLayoutEffect(() => {
+    if (game.current === undefined) {
+      game.current = StartGame('game-container')
+      game.current.events.on('show-modal', () => setOpen(true))
+    }
+
+    return () => {
+      if (game.current) {
+        game.current.destroy(true)
+        game.current = undefined
+      }
+    }
+  }, [])
+
+  const onClose = () => {
+    game.current?.events.emit('start-level', () => setOpen(true))
+    setOpen(false)
+  }
 
   return (
     <div
@@ -11,10 +33,16 @@ function App() {
       className="flex-col flex overflow-hidden w-full h-screen justify-center items-center text-white"
     >
       <div>
-        <PhaserGame ref={phaserRef} />
+        <div id="game-container"></div>
       </div>
       <div>
-        <div>hello</div>
+        <CoreModal isOpen={open} onClose={onClose}>
+          <div className="text-black flex h-full gap-2 flex-1 justify-center items-center">
+            <button onClick={onClose}>Add core 1</button>
+            <button onClick={onClose}>Add core 2</button>
+            <button onClick={onClose}>Add core 3</button>
+          </div>
+        </CoreModal>
       </div>
     </div>
   )
