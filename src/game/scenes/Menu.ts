@@ -13,15 +13,17 @@ export class Menu extends Scene {
   create() {
     const { width, height } = this.cameras.main
     this.title = this.add
-      .text(width / 2, height / 2, 'Click to start', {
+      .text(width / 2, height * 0.75, 'Press Z to Start', {
         fontSize: 24,
         stroke: '#000000',
         strokeThickness: 4,
       })
       .setOrigin(0.5)
 
+    this.add.image(width / 2, height / 2.5, 'title').setScale(2)
+
     this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
-    this.input.once('pointerdown', () => {
+    this.input.keyboard!.once('keydown-Z', () => {
       this.cameras.main.fade(
         CAMERA_FADE,
         0,

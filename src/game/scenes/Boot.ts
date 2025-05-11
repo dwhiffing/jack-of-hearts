@@ -31,6 +31,7 @@ export class Boot extends Scene {
   preload() {
     this.load.setPath('assets')
     this.load.multiatlas('sheet', 'sheet.json')
+    this.load.image('title', 'title.png')
   }
 
   create() {
