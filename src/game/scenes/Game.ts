@@ -100,6 +100,8 @@ export class Game extends Scene {
 
   triggerGameOver(): void {
     this.isGameOver = true
+    this.game.events.off('start-level')
+    this.game.events.off('spawn-core')
     this.cameras.main.fade(CAMERA_FADE, 0, 0, 0, true, (_: any, p: number) => {
       if (p === 1) this.scene.start('Menu')
     })
