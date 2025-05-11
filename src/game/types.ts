@@ -1,12 +1,13 @@
 export type EnemyTypeEnum =
-  | 'imp'
-  | 'lizard'
-  | 'skele'
   | 'goblin'
-  | 'chort'
-  | 'demon'
   | 'orc'
   | 'ogre'
+  | 'imp'
+  | 'demon'
+  | 'chort'
+  | 'skele'
+  | 'lizard'
+  | 'shaman'
 export type PlayerStats = {
   speed: number
   damage: number

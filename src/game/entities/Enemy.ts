@@ -33,7 +33,7 @@ export class Enemy extends EntityBase {
     this.setMaxHealth(
       Math.round(this.stats.health * this.sceneRef.effects.enemyHealthMulti),
     )
-    this.play(`${type}-walk`).setOffset(offsetX, offsetY).setSize(sizeX, sizeY)
+    this.play(`${type}-walk`).setSize(sizeX, sizeY).setOffset(offsetX, offsetY)
     this.body.setEnable(true)
   }
 
@@ -93,6 +93,10 @@ export class Enemy extends EntityBase {
     if (speed > 0) {
       this.play(`${this.type}-walk`, true)
       this.setFlipX(this.body.velocity.x < 0)
+
+      const { offsetX, offsetY } = this.spriteType
+
+      this.setOffset(offsetX + (this.body.velocity.x < 0 ? -2 : 0), offsetY)
       this.setDepth(this.body.position.y)
     }
   }
