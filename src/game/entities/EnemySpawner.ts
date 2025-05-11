@@ -14,7 +14,7 @@ export class EnemySpawner {
   constructor(sceneRef: Game) {
     this.sceneRef = sceneRef
     this.waveIndex = 0
-    this.levelIndex = 3
+    this.levelIndex = 0
     this.levelEnded = false
     this.allEnemiesSpawned = false
   }

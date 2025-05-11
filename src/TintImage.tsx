@@ -24,7 +24,8 @@ const TintImage: React.FunctionComponent<IconTintProps> = ({
   ...props
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const [size, setSize] = useState<DimensionsI>({ width: 100, height: 100 })
+  const picRef = useRef<HTMLImageElement>(null)
+  const [size, setSize] = useState<DimensionsI>({ width: 0, height: 0 })
 
   const _scaleImage = (
     srcWidth: number,
@@ -43,13 +44,13 @@ const TintImage: React.FunctionComponent<IconTintProps> = ({
   }
 
   useEffect(() => {
-    const pic = new Image()
-    pic.src = src
+    picRef.current = new Image()
+    picRef.current.src = src
 
-    pic.onload = () => {
+    picRef.current.onload = () => {
       const { width, height } = _scaleImage(
-        pic.width,
-        pic.height,
+        picRef.current!.width,
+        picRef.current!.height,
         maxWidth,
         maxHeight,
       )
@@ -61,15 +62,13 @@ const TintImage: React.FunctionComponent<IconTintProps> = ({
     const { current: canvas } = canvasRef
     const tintCanvas = document.createElement('canvas')
     const tintCtx = tintCanvas.getContext('2d')
+    if (size.width === 0 && size.height === 0) return
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx || !tintCtx) return
     const { width, height } = size
     tintCtx.clearRect(0, 0, width, height)
     ctx.clearRect(0, 0, width, height)
-
-    const pic = new Image()
-    pic.src = src
 
     tintCanvas.width = width
     tintCanvas.height = height
@@ -78,10 +77,10 @@ const TintImage: React.FunctionComponent<IconTintProps> = ({
     tintCtx.globalCompositeOperation = 'destination-atop'
     ctx.imageSmoothingEnabled = false
     tintCtx.imageSmoothingEnabled = false
-    tintCtx.drawImage(pic, 0, 0, width, height)
+    tintCtx.drawImage(picRef.current!, 0, 0, width, height)
     ctx.globalAlpha = 1
     ctx.drawImage(tintCanvas, 0, 0, width, height)
-  }, [size, color])
+  }, [size, color, src])
 
   return (
     <canvas
