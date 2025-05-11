@@ -132,6 +132,6 @@ export class Game extends Scene {
   }
 
   playSound = (key: string, extra?: Phaser.Types.Sound.SoundConfig) => {
-    if (this.game.hasFocus) this.sound.play(key, extra)
+    if (document.hasFocus()) this.sound.play(key, extra)
   }
 }
