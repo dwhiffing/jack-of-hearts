@@ -16,7 +16,8 @@ export function CoreModal(props: {
 
   useEffect(() => {
     if (props.isOpen) {
-      setCores(rollCores())
+      // @ts-ignore
+      setCores(rollCores(window.levelIndex))
       setIndex(-1)
     }
   }, [props.isOpen])
@@ -55,7 +56,11 @@ export function CoreModal(props: {
         >
           Submit
         </button>
-        <button className="w-full" onClick={() => setCores(rollCores)}>
+        <button
+          className="w-full"
+          // @ts-ignore
+          onClick={() => setCores(rollCores(window.levelIndex))}
+        >
           Re-roll
         </button>
       </div>

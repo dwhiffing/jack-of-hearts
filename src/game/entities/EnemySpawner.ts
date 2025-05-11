@@ -15,6 +15,8 @@ export class EnemySpawner {
     this.sceneRef = sceneRef
     this.waveIndex = 0
     this.levelIndex = 0
+    // @ts-ignore
+    window.levelIndex = this.levelIndex
     this.levelEnded = false
     this.allEnemiesSpawned = false
   }
@@ -31,6 +33,8 @@ export class EnemySpawner {
     this.levelEnded = false
     this.sceneRef.player.setVelocity(0)
     this.levelIndex++
+    // @ts-ignore
+    window.levelIndex = this.levelIndex
     this.waveIndex = 0
     this.nextWave()
   }

@@ -73,9 +73,9 @@ export class Enemy extends EntityBase {
     // when complete, check if still alive, apply damage and reset
     this.sceneRef.time.delayedCall(attackDelay, () => {
       const dist = Phaser.Math.Distance.BetweenPoints(this, target)
+      this.isAttacking = false
       if (!this.body || !target.body) return
 
-      this.isAttacking = false
       this.setPushable(true)
 
       if (this.getHealth() <= 0 || dist > attackDist) return

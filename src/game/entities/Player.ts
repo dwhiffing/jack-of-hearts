@@ -189,7 +189,8 @@ export class Player extends Physics.Arcade.Sprite {
     if (
       !Input.Keyboard.JustDown(this.attackKey) ||
       !this._canAttack ||
-      this.isDashing
+      this.isDashing ||
+      this.carriedCore
     ) {
       return
     }

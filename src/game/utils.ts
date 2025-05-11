@@ -1,4 +1,4 @@
-import { effects, effectStats, MAX_RARITY } from './constants'
+import { effectStats } from './constants'
 import { CoreHalfStat, CoreStats } from './types'
 
 export const createAnims = (
@@ -48,9 +48,33 @@ export function lerp(start: number, end: number, amount: number): number {
 export const getRarity = () =>
   Phaser.Math.RND?.weightedPick([0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2]) + 0
 
-export const rollCores = () => {
-  const _effects =
-    Phaser.Math.RND?.shuffle(Object.keys(effects)).slice(0, 6) ?? []
+export const rollCores = (levelIndex: number) => {
+  const keys =
+    levelIndex <= 5
+      ? [
+          'playerDamage',
+          'playerAttackSizeMulti',
+          'playerAttackRateMulti',
+          'enemySpeedMulti',
+          'enemyDamageMulti',
+          'playerSpeedMulti',
+        ]
+      : [
+          'enemyHealthMulti',
+          'enemySpeedMulti',
+          'enemyDamageMulti',
+          'enemyCount',
+          'playerAttackSizeMulti',
+          'playerAttackStunDurationMulti',
+          'playerAttackRateMulti',
+          'playerSpeedMulti',
+          'playerDamage',
+          'playerDamageMulti',
+          'playerDashCooldownMulti',
+          'playerDashDistMulti',
+          'playerStunRecovery',
+        ]
+  const _effects = Phaser.Math.RND?.shuffle(keys).slice(0, 6) ?? []
 
   if (_effects.length === 0) return []
 
