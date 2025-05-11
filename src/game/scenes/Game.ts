@@ -3,7 +3,8 @@ import { Player } from '../entities/Player'
 import { Core } from '../entities/Core'
 import { Enemy } from '../entities/Enemy'
 import { Hud } from '../entities/Hud'
-import { CAMERA_FADE, CoreStats, PRIMARY_CORE } from '../constants'
+import { CAMERA_FADE, PRIMARY_CORE, effects } from '../constants'
+import { CoreStats, Effects } from '../types'
 import { EnemySpawner } from '../entities/EnemySpawner'
 import { Emitter } from '../entities/Emitter'
 import { CoreSpawner } from '../entities/CoreSpawner'
@@ -47,6 +48,8 @@ export class Game extends Scene {
     this.enemySpawner = new EnemySpawner(this)
     this.enemySpawner.nextWave()
 
+    this.data.set('effects', effects)
+
     this.waveIndex = 0
     this.inShop = false
     this.levelIndex = 0
@@ -87,5 +90,13 @@ export class Game extends Scene {
     this.cameras.main.fade(CAMERA_FADE, 0, 0, 0, true, (_: any, p: number) => {
       if (p === 1) this.scene.start('Menu')
     })
+  }
+
+  get effects() {
+    return this.data.get('effects') as Effects
+  }
+
+  setEffect = (key: keyof Effects, value: number) => {
+    this.data.set('effects', { ...this.effects, [key]: value })
   }
 }

@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from 'react'
 import StartGame from './game/main'
 import { Game } from 'phaser'
-import { CoreStats } from './game/constants'
+import { CoreStats } from './game/types'
 import { CoreModal } from './CoreModal'
 
 function App() {

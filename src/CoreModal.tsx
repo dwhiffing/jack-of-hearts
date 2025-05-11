@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Modal } from './Modal'
-import { CORE_HALVES, CoreStats } from './game/constants'
+import { CORE_HALVES } from './game/constants'
+import { CoreStats } from './game/types'
 
 export function CoreModal(props: {
   isOpen: boolean

@@ -1,4 +1,4 @@
-import { CoreStats } from '../constants'
+import { CoreStats } from '../types'
 import { Game } from '../scenes/Game'
 import { Enemy } from './Enemy'
 import { EntityBase } from './EntityBase'
@@ -52,7 +52,8 @@ export class Core extends EntityBase {
 
   public takeDamage(amount: number | Enemy): void {
     if (typeof amount !== 'number') {
-      amount = amount.stats.attackType.damage
+      amount =
+        amount.stats.attackType.damage * this.sceneRef.effects.enemyDamageMulti
     }
 
     super.takeDamage(amount)

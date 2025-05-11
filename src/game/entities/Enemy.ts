@@ -1,4 +1,5 @@
-import { ENEMY_TYPES, ENEMY_STATS, EnemyTypeEnum } from '../constants'
+import { ENEMY_TYPES, ENEMY_STATS } from '../constants/enemies'
+import { EnemyTypeEnum } from '../types'
 import { Game } from '../scenes/Game'
 import { Core } from './Core'
 import { EntityBase } from './EntityBase'
@@ -29,7 +30,9 @@ export class Enemy extends EntityBase {
     this.moveMulti = 1
     this.isDying = false
     this.alpha = 1
-    this.setMaxHealth(this.stats.health)
+    this.setMaxHealth(
+      Math.round(this.stats.health * this.sceneRef.effects.enemyHealthMulti),
+    )
     this.play(`${type}-walk`).setOffset(offsetX, offsetY).setSize(sizeX, sizeY)
     this.body.setEnable(true)
   }
@@ -84,7 +87,8 @@ export class Enemy extends EntityBase {
   }
 
   public moveTowards(target: Core | Player): void {
-    const speed = this.stats.speed * this.moveMulti
+    const speed =
+      this.stats.speed * this.moveMulti * this.sceneRef.effects.enemySpeedMulti
     this.sceneRef.physics.moveToObject(this, target, speed)
     if (speed > 0) {
       this.play(`${this.type}-walk`, true)
@@ -100,7 +104,10 @@ export class Enemy extends EntityBase {
     if (!this.active) return
 
     this.moveMulti = 0
-    this.sceneRef.time.delayedCall(1000, () => (this.moveMulti = 1))
+    this.sceneRef.time.delayedCall(
+      350 * this.sceneRef.effects.playerAttackStunDuration,
+      () => (this.moveMulti = 1),
+    )
     this.play(`${this.type}-stop`)
   }
 

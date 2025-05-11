@@ -1,5 +1,5 @@
 import { Scene } from 'phaser'
-import { ANIMS } from '../constants'
+import { ANIMS } from '../constants/anims'
 import { createAnims } from '../utils'
 
 export class Boot extends Scene {

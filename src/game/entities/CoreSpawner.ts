@@ -1,4 +1,4 @@
-import { CoreStats } from '../constants'
+import { CoreStats } from '../types'
 import { Game } from '../scenes/Game'
 import { Core } from './Core'
 

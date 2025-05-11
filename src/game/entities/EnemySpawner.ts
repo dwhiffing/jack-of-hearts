@@ -1,5 +1,6 @@
 import { Enemy } from './Enemy'
-import { EnemyTypeEnum, LEVELS } from '../constants'
+import { LEVELS } from '../constants'
+import { EnemyTypeEnum } from '../types'
 import { Game } from '../scenes/Game'
 
 export class EnemySpawner {
