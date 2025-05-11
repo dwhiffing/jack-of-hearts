@@ -141,11 +141,13 @@ export class Enemy extends EntityBase {
 
   get closestCore() {
     const cores = this.sceneRef.cores.getChildren() as Core[]
-    return cores.sort((a, b) => {
-      const aDist = Phaser.Math.Distance.BetweenPoints(this, a)
-      const bDist = Phaser.Math.Distance.BetweenPoints(this, b)
-      return aDist - bDist
-    })[0]
+    return cores
+      .filter((c) => c.getHealth() > 0)
+      .sort((a, b) => {
+        const aDist = Phaser.Math.Distance.BetweenPoints(this, a)
+        const bDist = Phaser.Math.Distance.BetweenPoints(this, b)
+        return aDist - bDist
+      })[0]
   }
 
   get spriteType() {

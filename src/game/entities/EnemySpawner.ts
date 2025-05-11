@@ -36,7 +36,10 @@ export class EnemySpawner {
   }
 
   nextWave = async () => {
-    this.level = generateLevel(this.levelIndex)
+    this.level = generateLevel(
+      this.levelIndex,
+      this.sceneRef.effects.enemyCount,
+    )
     const wave = this.level?.waves[this.waveIndex++]
     if (this.level && wave) {
       this.allEnemiesSpawned = false

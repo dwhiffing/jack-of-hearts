@@ -63,12 +63,13 @@ export class Player extends Physics.Arcade.Sprite {
     this.updateAttachedItemsAndDepth()
   }
 
-  public takeDamage(enemy: Enemy) {
-    if (this.isStunned) return
-    if (this.isDashing) return
+  public takeDamage(enemy: Enemy, isCollision = false) {
+    if (this.isDashing || this.isStunned || enemy.getHealth() === 0) return
 
     const amount =
-      enemy.stats.attackType.damage * this.sceneRef.effects.enemyDamageMulti
+      (isCollision
+        ? enemy.stats.attackType.damage
+        : enemy.stats.collideDamage) * this.sceneRef.effects.enemyDamageMulti
 
     this.sceneRef.playSound('player-hit')
     if (this.carriedCore) {

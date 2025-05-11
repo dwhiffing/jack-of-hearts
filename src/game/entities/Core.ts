@@ -31,6 +31,8 @@ export class Core extends EntityBase {
     this.stats = stats
     this.leftHalf.setTint(getEffectColor(stats.left))
     this.rightHalf.setTint(getEffectColor(stats.right))
+    this.leftHalf.setAlpha(1)
+    this.rightHalf.setAlpha(1)
   }
 
   public setPosition(x: number, y: number) {
@@ -70,6 +72,8 @@ export class Core extends EntityBase {
     } else {
       this.sceneRef.playSound('core-destroyed', { volume: 0.7 })
     }
+    this.leftHalf.setAlpha(0)
+    this.rightHalf.setAlpha(0)
     super.destroy(fromScene)
   }
 }

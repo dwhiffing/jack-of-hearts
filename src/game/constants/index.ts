@@ -10,39 +10,74 @@ export const CAMERA_FADE = 750
 export const MAX_RARITY = 5
 
 const generateEnemy = (levelIndex: number): EnemyTypeEnum => {
-  let enemyPool: EnemyTypeEnum[] = ['goblin', 'goblin', 'goblin']
-  if (levelIndex > 1) {
-    enemyPool.push('orc', 'orc')
+  let enemyPool: EnemyTypeEnum[] = [
+    'goblin',
+    'goblin',
+    'goblin',
+    'goblin',
+    'goblin',
+    'goblin',
+  ]
+  if (levelIndex > 4) {
+    enemyPool.push('orc', 'orc', 'orc')
   }
-  if (levelIndex > 2) {
+  if (levelIndex > 8) {
     enemyPool.push('ogre')
   }
   return Phaser.Math.RND.weightedPick(enemyPool)
 }
 
-const generateWave = (levelIndex: number): IWave => {
-  const enemyCountMin = 2 + Math.floor(levelIndex / 2)
-  const enemyCountMax = 3 + Math.floor(levelIndex / 2)
-  const enemyCount = Phaser.Math.RND.between(enemyCountMin, enemyCountMax)
-  const enemies = Array.from({ length: enemyCount }, () =>
+const generateWave = (levelIndex: number, _enemyCount: number): IWave => {
+  const enemyCount = getEnemyCount(levelIndex) + _enemyCount
+  const enemies = Array.from({ length: Math.max(1, enemyCount) }, () =>
     generateEnemy(levelIndex),
   )
 
-  return { spawnRate: 500 - levelIndex * 100, enemies }
+  return { spawnRate: 2000, enemies }
 }
 
-export const generateLevel = (levelIndex: number): ILevel => {
-  const waveCount = 2 + levelIndex
-  const waves = Array.from({ length: waveCount }, () =>
-    generateWave(levelIndex),
+export const generateLevel = (
+  levelIndex: number,
+  enemyCount: number,
+): ILevel => {
+  const waves = Array.from({ length: getWaveCount(levelIndex) }, () =>
+    generateWave(levelIndex, enemyCount),
   )
   return { waves, waveRate: 10000 }
+}
+
+const getEnemyCount = (levelIndex: number) => {
+  if (levelIndex < 5) {
+    return 3
+  } else if (levelIndex >= 5) {
+    return 4
+  } else if (levelIndex >= 10) {
+    return 5
+  } else {
+    return 6
+  }
+}
+
+const getWaveCount = (levelIndex: number) => {
+  if (levelIndex === 0) {
+    return 1
+  } else if (levelIndex <= 2) {
+    return 2
+  } else if (levelIndex <= 4) {
+    return 3
+  } else if (levelIndex <= 6) {
+    return 4
+  } else if (levelIndex <= 8) {
+    return 5
+  } else {
+    return 6
+  }
 }
 
 export const playerStats: PlayerStats = {
   speed: 150,
   damage: 1,
-  attackRate: 600,
+  attackRate: 750,
   attackRadius: 35,
   dashDistance: 150,
   dashDuration: 300,

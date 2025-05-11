@@ -91,7 +91,7 @@ export class Game extends Scene {
   }
 
   playerEnemyCollide = (player: Player, enemy: Enemy) =>
-    player.takeDamage(enemy)
+    player.takeDamage(enemy, true)
 
   triggerGameOver(): void {
     this.isGameOver = true
