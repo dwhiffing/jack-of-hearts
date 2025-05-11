@@ -29,6 +29,7 @@ export class EnemySpawner {
 
   nextLevel = (): void => {
     this.levelEnded = false
+    this.sceneRef.player.setVelocity(0)
     this.levelIndex++
     this.waveIndex = 0
     this.nextWave()

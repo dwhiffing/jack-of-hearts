@@ -10,6 +10,7 @@ export class Player extends Physics.Arcade.Sprite {
   protected sceneRef: Game
   private _lastAngle: PhaserMath.Vector2
   private _canAttack: boolean
+  private _canMove: boolean
   public carriedCore?: Core
   public shadow: Shadow
   private slashEffect: Slash
@@ -42,6 +43,7 @@ export class Player extends Physics.Arcade.Sprite {
 
     this._lastAngle = new PhaserMath.Vector2(1, 0)
     this._canAttack = true
+    this._canMove = true
     this.slashEffect = new Slash(this.sceneRef, this.x, this.y, 1)
     this.shadow = new Shadow(this.sceneRef, x, y, 40, 4)
 
@@ -62,11 +64,13 @@ export class Player extends Physics.Arcade.Sprite {
   }
 
   public takeDamage(enemy: Enemy) {
+    if (this.isStunned) return
+    if (this.isDashing) return
+
     const amount =
       enemy.stats.attackType.damage * this.sceneRef.effects.enemyDamageMulti
 
     this.sceneRef.playSound('player-hit')
-    if (this.isDashing) return
     if (this.carriedCore) {
       this.carriedCore.takeDamage(amount)
     }
@@ -99,7 +103,7 @@ export class Player extends Physics.Arcade.Sprite {
     if (
       Input.Keyboard.JustDown(this.dashKey) &&
       this.canDash &&
-      this._canAttack
+      this._canMove
     ) {
       this.startDash()
       return
@@ -143,7 +147,7 @@ export class Player extends Physics.Arcade.Sprite {
   }
 
   private handleWASDMovement(): void {
-    if (!this.body || this.isDashing) return
+    if (!this.body || this.isDashing || !this._canMove) return
 
     this.setVelocity(0)
     const currentMovement: PhaserMath.Vector2 = new PhaserMath.Vector2(0, 0)
@@ -216,7 +220,9 @@ export class Player extends Physics.Arcade.Sprite {
     this.sceneRef.playSound('player-attack', { volume: 0.7 })
 
     this._canAttack = false
-    this.moveSpeed = 0
+    this._canMove = false
+    this.setVelocity(0, 0)
+    this.play('player-idle')
     const attackPos = new PhaserMath.Vector2(this.x, this.y)
     const angle =
       this._lastAngle.x !== 0 || this._lastAngle.y !== 0
@@ -240,11 +246,16 @@ export class Player extends Physics.Arcade.Sprite {
     })
 
     this.sceneRef.time.delayedCall(
+      this.stats.attackRate * this.sceneRef.effects.playerAttackRateMulti * 0.5,
+      () => {
+        this._canMove = true
+      },
+    )
+
+    this.sceneRef.time.delayedCall(
       this.stats.attackRate * this.sceneRef.effects.playerAttackRateMulti,
       () => {
         this._canAttack = true
-        this.moveSpeed =
-          this.stats.speed * this.sceneRef.effects.playerSpeedMulti
         this.slashEffect.cleanup()
       },
     )

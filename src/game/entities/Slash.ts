@@ -36,6 +36,7 @@ export class Slash {
 
     this.slashSprite.setAlpha(1)
     this.slashSprite.play(`slash-${this.index}`, true)
+    this.sceneRef.time.delayedCall(340, () => this.slashSprite.setAlpha(0))
 
     const dir = attackDirection.clone().normalize()
 
