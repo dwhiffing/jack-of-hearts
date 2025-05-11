@@ -51,11 +51,13 @@ export class Boot extends Scene {
     this.load.audio('pickup-item', 'pickup-item.mp3')
     this.load.audio('player-attack', 'player-attack.mp3')
     this.load.audio('player-hit', 'player-hit.mp3')
+    this.load.audio('music', 'music.mp3')
   }
 
   create() {
     createAnims(this.anims, ANIMS)
     // this.scene.start('Game')
+    this.sound.play('music', { loop: true, volume: 0.5 })
     this.scene.start('Menu')
   }
 }
