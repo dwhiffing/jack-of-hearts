@@ -240,8 +240,11 @@ export class Player extends Physics.Arcade.Sprite {
 
       if (this.slashEffect.isTargetHit(enemy.body, attackPos, angle, rad)) {
         enemy.takeDamage(
-          (this.stats.damage + this.sceneRef.effects.playerDamage) *
-            this.sceneRef.effects.playerDamageMulti,
+          Math.max(
+            1,
+            (this.stats.damage + this.sceneRef.effects.playerDamage) *
+              this.sceneRef.effects.playerDamageMulti,
+          ),
         )
       }
     })

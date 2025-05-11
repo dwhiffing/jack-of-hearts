@@ -133,7 +133,7 @@ export const effectStats: Record<
   enemyCount: {
     label: 'Enemy Count',
     color: COLORS[4],
-    ranges: { good: [-1, -2, -3], bad: [1, 2, 3] },
+    ranges: { good: [-1, -1, -2], bad: [1, 1, 2] },
   },
   playerAttackSizeMulti: {
     label: 'Attack Size',

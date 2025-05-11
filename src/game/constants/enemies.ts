@@ -33,8 +33,8 @@ export const ENEMY_STATS: Record<string, EnemyStats> = {
     health: 10,
     speed: 45,
     collideDamage: 5,
-    stunDuration: 750,
-    stunSpeed: 400,
+    stunDuration: 600,
+    stunSpeed: 200,
   },
   ogre: {
     key: 'ogre',
@@ -42,8 +42,8 @@ export const ENEMY_STATS: Record<string, EnemyStats> = {
     health: 50,
     speed: 15,
     collideDamage: 10,
-    stunDuration: 1000,
-    stunSpeed: 500,
+    stunDuration: 800,
+    stunSpeed: 200,
   },
   imp: {
     key: 'imp',
