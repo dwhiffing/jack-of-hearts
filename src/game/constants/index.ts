@@ -1,14 +1,43 @@
-import { ILevel, PlayerStats, Effects, CoreStats } from '../types'
-
+import {
+  ILevel,
+  PlayerStats,
+  Effects,
+  CoreStats,
+  EnemyTypeEnum,
+  IWave,
+} from '../types'
 export const CAMERA_FADE = 750
 export const MAX_RARITY = 5
 
-export const LEVELS: ILevel[] = [
-  { waves: [{ spawnRate: 1500, enemies: ['imp'] }] },
-  { waves: [{ spawnRate: 1500, enemies: ['chort', 'chort', 'chort'] }] },
-  { waves: [{ spawnRate: 1500, enemies: ['orc', 'orc'] }] },
-  { waves: [{ spawnRate: 1500, enemies: ['ogre'] }] },
-]
+const generateEnemy = (levelIndex: number): EnemyTypeEnum => {
+  let enemyPool: EnemyTypeEnum[] = ['goblin', 'goblin', 'goblin']
+  if (levelIndex > 1) {
+    enemyPool.push('orc', 'orc')
+  }
+  if (levelIndex > 2) {
+    enemyPool.push('ogre')
+  }
+  return Phaser.Math.RND.weightedPick(enemyPool)
+}
+
+const generateWave = (levelIndex: number): IWave => {
+  const enemyCountMin = 2 + Math.floor(levelIndex / 2)
+  const enemyCountMax = 3 + Math.floor(levelIndex / 2)
+  const enemyCount = Phaser.Math.RND.between(enemyCountMin, enemyCountMax)
+  const enemies = Array.from({ length: enemyCount }, () =>
+    generateEnemy(levelIndex),
+  )
+
+  return { spawnRate: 500 - levelIndex * 100, enemies }
+}
+
+export const generateLevel = (levelIndex: number): ILevel => {
+  const waveCount = 2 + levelIndex
+  const waves = Array.from({ length: waveCount }, () =>
+    generateWave(levelIndex),
+  )
+  return { waves, waveRate: 10000 }
+}
 
 export const playerStats: PlayerStats = {
   speed: 150,

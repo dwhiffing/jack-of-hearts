@@ -1,7 +1,7 @@
 import { Enemy } from './Enemy'
-import { LEVELS } from '../constants'
-import { EnemyTypeEnum } from '../types'
+import { EnemyTypeEnum, ILevel } from '../types'
 import { Game } from '../scenes/Game'
+import { generateLevel } from '../constants'
 
 export class EnemySpawner {
   protected sceneRef: Game
@@ -9,20 +9,20 @@ export class EnemySpawner {
   public levelIndex: number
   public levelEnded: boolean
   public allEnemiesSpawned: boolean
+  level: ILevel
 
   constructor(sceneRef: Game) {
     this.sceneRef = sceneRef
     this.waveIndex = 0
-    this.levelIndex = 0
+    this.levelIndex = 3
     this.levelEnded = false
     this.allEnemiesSpawned = false
   }
 
   getAllEnemiesDead = () =>
     this.allEnemiesSpawned &&
+    this.waveIndex >= this.level.waves.length &&
     this.sceneRef.enemies.getChildren().every((e) => e.getData('health') <= 0)
-
-  hasHasNextLevel = () => this.levelIndex < LEVELS.length - 1
 
   nextLevel = (): void => {
     this.levelEnded = false
@@ -32,9 +32,9 @@ export class EnemySpawner {
   }
 
   nextWave = async () => {
-    const level = LEVELS[this.levelIndex]
-    const wave = level?.waves[this.waveIndex++]
-    if (level && wave) {
+    this.level = generateLevel(this.levelIndex)
+    const wave = this.level?.waves[this.waveIndex++]
+    if (this.level && wave) {
       this.allEnemiesSpawned = false
       wave.enemies.forEach((type, i) => {
         this.sceneRef.time.delayedCall(wave.spawnRate * i, () => {
@@ -43,7 +43,7 @@ export class EnemySpawner {
         })
       })
 
-      this.sceneRef.time.delayedCall(5000, this.nextWave)
+      this.sceneRef.time.delayedCall(this.level.waveRate, this.nextWave)
     }
   }
 
@@ -53,11 +53,7 @@ export class EnemySpawner {
   }
 
   update(): void {
-    if (
-      !this.levelEnded &&
-      this.getAllEnemiesDead() &&
-      this.hasHasNextLevel()
-    ) {
+    if (!this.levelEnded && this.getAllEnemiesDead()) {
       this.levelEnded = true
       this.sceneRef.time.delayedCall(750, () => {
         this.sceneRef.game.events.emit('show-modal')

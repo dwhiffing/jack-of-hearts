@@ -74,4 +74,5 @@ export type IWave = {
 }
 export type ILevel = {
   waves: IWave[]
+  waveRate: number
 }
