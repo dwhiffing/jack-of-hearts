@@ -70,7 +70,8 @@ export class Core extends EntityBase {
       this.sceneRef.triggerGameOver()
       this.sceneRef.playSound('game-over', { volume: 0.7 })
     } else {
-      this.sceneRef.playSound('core-destroyed', { volume: 0.7 })
+      if (!this.sceneRef.isGameOver)
+        this.sceneRef.playSound('core-destroyed', { volume: 0.7 })
     }
     this.leftHalf.setAlpha(0)
     this.rightHalf.setAlpha(0)

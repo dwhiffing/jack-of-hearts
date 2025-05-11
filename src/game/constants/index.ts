@@ -43,7 +43,7 @@ export const generateLevel = (
   const waves = Array.from({ length: getWaveCount(levelIndex) }, () =>
     generateWave(levelIndex, enemyCount),
   )
-  return { waves, waveRate: 10000 }
+  return { waves, waveRate: 6500 }
 }
 
 const getEnemyCount = (levelIndex: number) => {

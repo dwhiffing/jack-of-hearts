@@ -121,7 +121,8 @@ export class Enemy extends EntityBase {
   public destroy(fromScene?: boolean): void {
     if (this.isDying) return
 
-    this.sceneRef.playSound('enemy-destroyed', { volume: 0.6 })
+    if (!this.sceneRef.isGameOver)
+      this.sceneRef.playSound('enemy-destroyed', { volume: 0.6 })
     this.isDying = true
     this.setVelocity(0)
     if (!this.sceneRef.isGameOver) this.sceneRef.emitter.explode(this.x, this.y)

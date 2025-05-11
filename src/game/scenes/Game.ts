@@ -34,6 +34,11 @@ export class Game extends Scene {
     this.camera = this.cameras.main
     const { width: w, height: h } = this.camera
 
+    // this.time.timeScale = 4
+    // this.tweens.timeScale = 4
+    // this.physics.world.timeScale = 0.25
+    // this.anims.globalTimeScale = 4
+
     this.isGameOver = false
     this.floor = new Floor(this)
     this.player = new Player(this, w / 2, h / 2 + 120)
