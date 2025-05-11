@@ -22,7 +22,10 @@ export class EnemySpawner {
   getAllEnemiesDead = () =>
     this.allEnemiesSpawned &&
     this.waveIndex >= this.level.waves.length &&
-    this.sceneRef.enemies.getChildren().every((e) => e.getData('health') <= 0)
+    this.sceneRef.enemies
+      .getChildren()
+      .every((e) => e.getData('health') <= 0) &&
+    !this.sceneRef.isGameOver
 
   nextLevel = (): void => {
     this.levelEnded = false
@@ -36,6 +39,7 @@ export class EnemySpawner {
     const wave = this.level?.waves[this.waveIndex++]
     if (this.level && wave) {
       this.allEnemiesSpawned = false
+      this.sceneRef.playSound('enemy-spawn', { volume: 0.7, rate: 0.7 })
       wave.enemies.forEach((type, i) => {
         this.sceneRef.time.delayedCall(wave.spawnRate * i, () => {
           this.spawnEnemy(type)
@@ -56,6 +60,7 @@ export class EnemySpawner {
     if (!this.levelEnded && this.getAllEnemiesDead()) {
       this.levelEnded = true
       this.sceneRef.time.delayedCall(750, () => {
+        this.sceneRef.playSound('level-complete', { volume: 0.7 })
         this.sceneRef.game.events.emit('show-modal')
       })
     }

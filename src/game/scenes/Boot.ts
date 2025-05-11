@@ -36,6 +36,21 @@ export class Boot extends Scene {
       frameHeight: 16,
     })
     this.load.image('title', 'title.png')
+    this.load.setPath('assets/audio')
+    this.load.audio('click-disabled', 'click-disabled.mp3')
+    this.load.audio('click', 'click.mp3')
+    this.load.audio('core-destroyed', 'core-destroyed.mp3')
+    this.load.audio('core-hit', 'core-hit.mp3')
+    this.load.audio('dodge', 'dodge.mp3')
+    this.load.audio('drop-item', 'drop-item.mp3')
+    this.load.audio('enemy-destroyed', 'enemy-destroyed.mp3')
+    this.load.audio('enemy-hit', 'enemy-hit.mp3')
+    this.load.audio('enemy-spawn', 'enemy-spawn.mp3')
+    this.load.audio('game-over', 'game-over.mp3')
+    this.load.audio('level-complete', 'level-complete.mp3')
+    this.load.audio('pickup-item', 'pickup-item.mp3')
+    this.load.audio('player-attack', 'player-attack.mp3')
+    this.load.audio('player-hit', 'player-hit.mp3')
   }
 
   create() {

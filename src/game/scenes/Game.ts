@@ -72,6 +72,10 @@ export class Game extends Scene {
       this.coreSpawner.spawn(stats)
       this.updateEffects()
     })
+
+    this.input.keyboard!.on('keydown-M', () => {
+      this.game.sound.setMute(!this.game.sound.mute)
+    })
   }
 
   update(_time: number, _delta: number): void {
@@ -125,5 +129,9 @@ export class Game extends Scene {
         currentValueRight + getEffectValue(core.stats.right, 'bad'),
       )
     })
+  }
+
+  playSound = (key: string, extra?: Phaser.Types.Sound.SoundConfig) => {
+    this.sound.play(key, extra)
   }
 }

@@ -25,7 +25,11 @@ export class Menu extends Scene {
     this.add.image(width / 2, height / 2.5, 'title').setScale(2)
 
     this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
+    this.input.keyboard!.on('keydown-M', () => {
+      this.game.sound.setMute(!this.game.sound.mute)
+    })
     this.input.keyboard!.once('keydown-Z', () => {
+      this.game.sound.play('player-attack')
       this.cameras.main.fade(
         CAMERA_FADE,
         0,

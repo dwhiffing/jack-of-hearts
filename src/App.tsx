@@ -37,7 +37,7 @@ function App() {
       className="flex-col flex overflow-hidden w-full h-screen justify-center items-center text-white"
     >
       <div id="game-container"></div>
-      <CoreModal isOpen={open} onClose={onClose} />
+      <CoreModal isOpen={open} onClose={onClose} game={game.current} />
     </div>
   )
 }

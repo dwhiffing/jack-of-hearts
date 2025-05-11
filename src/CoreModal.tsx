@@ -4,10 +4,12 @@ import { effectStats } from './game/constants'
 import { CoreHalfStat, CoreStats } from './game/types'
 import TintImage from './TintImage'
 import { getEffectColor, getEffectValue, rollCores } from './game/utils'
+import { Game } from 'phaser'
 
 export function CoreModal(props: {
   isOpen: boolean
   onClose: (stats?: CoreStats) => void
+  game?: Game
 }) {
   const [index, setIndex] = useState(-1)
   const [cores, setCores] = useState<CoreStats[]>([])
@@ -29,7 +31,10 @@ export function CoreModal(props: {
               key={i}
               core={core}
               isActive={index === i}
-              onClick={() => setIndex(i)}
+              onClick={() => {
+                props.game?.sound.play('click')
+                setIndex(i)
+              }}
             >
               {`Core ${i + 1}`}
             </CoreButton>
@@ -38,8 +43,15 @@ export function CoreModal(props: {
 
         <button
           className="w-full"
-          disabled={index === -1}
-          onClick={() => props.onClose(selectedCore)}
+          onClick={() => {
+            if (index === -1) {
+              props.game?.sound.play('click-disabled')
+            } else {
+              props.game?.sound.play('click')
+
+              props.onClose(selectedCore)
+            }
+          }}
         >
           Submit
         </button>

@@ -64,6 +64,8 @@ export class Player extends Physics.Arcade.Sprite {
   public takeDamage(enemy: Enemy) {
     const amount =
       enemy.stats.attackType.damage * this.sceneRef.effects.enemyDamageMulti
+
+    this.sceneRef.playSound('player-hit')
     if (this.isDashing) return
     if (this.carriedCore) {
       this.carriedCore.takeDamage(amount)
@@ -86,7 +88,8 @@ export class Player extends Physics.Arcade.Sprite {
   }
 
   private handlePlayerInput(enemies: Enemy[]): void {
-    if (!this.body || this.isStunned) return
+    if (!this.body || this.isStunned || this.sceneRef.enemySpawner.levelEnded)
+      return
 
     if (this.isDashing) {
       this.play('player-walk', true)
@@ -111,6 +114,7 @@ export class Player extends Physics.Arcade.Sprite {
 
     this.isDashing = true
     this.canDash = false
+    this.sceneRef.playSound('dodge', { volume: 1, rate: 1.5 })
 
     const dashDirection = this._lastAngle.clone()
     if (dashDirection.lengthSq() === 0) {
@@ -195,15 +199,21 @@ export class Player extends Physics.Arcade.Sprite {
           return
         }
       })
-      if (this.carriedCore) return
+      if (this.carriedCore) {
+        this.sceneRef.playSound('pickup-item', { volume: 0.7 })
+        return
+      }
     }
 
     if (this.carriedCore) {
       this.carriedCore.setPosition(this.x, this.y)
       this.carriedCore.shadow.setAlpha(1)
       this.carriedCore = undefined
+      this.sceneRef.playSound('drop-item', { volume: 0.7 })
       return
     }
+
+    this.sceneRef.playSound('player-attack', { volume: 0.7 })
 
     this._canAttack = false
     this.moveSpeed = 0

@@ -58,12 +58,18 @@ export class Core extends EntityBase {
       amount =
         amount.stats.attackType.damage * this.sceneRef.effects.enemyDamageMulti
     }
+    this.sceneRef.playSound('core-hit', { volume: 0.7 })
 
     super.takeDamage(amount)
   }
 
   public destroy(fromScene?: boolean): void {
-    if (this.isPrimary) this.sceneRef.triggerGameOver()
+    if (this.isPrimary) {
+      this.sceneRef.triggerGameOver()
+      this.sceneRef.playSound('game-over', { volume: 0.7 })
+    } else {
+      this.sceneRef.playSound('core-destroyed', { volume: 0.7 })
+    }
     super.destroy(fromScene)
   }
 }

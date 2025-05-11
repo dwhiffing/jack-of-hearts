@@ -107,6 +107,9 @@ export class Enemy extends EntityBase {
     super.takeDamage(amount)
     if (!this.active) return
 
+    if (this.getHealth() > 0)
+      this.sceneRef.playSound('enemy-hit', { volume: 2 })
+
     this.moveMulti = 0
     this.sceneRef.time.delayedCall(
       350 * this.sceneRef.effects.playerAttackStunDurationMulti,
@@ -116,6 +119,9 @@ export class Enemy extends EntityBase {
   }
 
   public destroy(fromScene?: boolean): void {
+    if (this.isDying) return
+
+    this.sceneRef.playSound('enemy-destroyed', { volume: 0.6 })
     this.isDying = true
     this.setVelocity(0)
     if (!this.sceneRef.isGameOver) this.sceneRef.emitter.explode(this.x, this.y)
