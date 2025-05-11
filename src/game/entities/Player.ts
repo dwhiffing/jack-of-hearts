@@ -121,10 +121,10 @@ export class Player extends Physics.Arcade.Sprite {
 
     const dur = this.stats.dashDuration
     const cooldown =
-      this.stats.dashCooldown * this.sceneRef.effects.playerDashCooldown
+      this.stats.dashCooldown * this.sceneRef.effects.playerDashCooldownMulti
     const dashSpeed =
       (this.stats.dashDistance / (dur / 1000)) *
-      this.sceneRef.effects.playerDashDist
+      this.sceneRef.effects.playerDashDistMulti
     this.setVelocity(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed)
 
     if (dashDirection.x !== 0) this.setFlipX(dashDirection.x < 0)
@@ -155,7 +155,7 @@ export class Player extends Physics.Arcade.Sprite {
 
       const speed =
         (this.carriedCore ? this.moveSpeed / 4 : this.moveSpeed) *
-        this.sceneRef.effects.playerSpeed
+        this.sceneRef.effects.playerSpeedMulti
       this.setVelocity(currentMovement.x * speed, currentMovement.y * speed)
       this._lastAngle = currentMovement.clone()
       if (currentMovement.x !== 0) this.setFlipX(currentMovement.x < 0)
@@ -214,7 +214,8 @@ export class Player extends Physics.Arcade.Sprite {
         : new PhaserMath.Vector2(this.flipX ? -1 : 1, 0)
     angle.normalize()
 
-    const rad = this.stats.attackRadius * this.sceneRef.effects.playerAttackSize
+    const rad =
+      this.stats.attackRadius * this.sceneRef.effects.playerAttackSizeMulti
     this.slashEffect.performAttack(attackPos, angle, rad)
 
     enemies.forEach((enemy) => {
@@ -229,10 +230,11 @@ export class Player extends Physics.Arcade.Sprite {
     })
 
     this.sceneRef.time.delayedCall(
-      this.stats.attackRate * this.sceneRef.effects.playerAttackRate,
+      this.stats.attackRate * this.sceneRef.effects.playerAttackRateMulti,
       () => {
         this._canAttack = true
-        this.moveSpeed = this.stats.speed * this.sceneRef.effects.playerSpeed
+        this.moveSpeed =
+          this.stats.speed * this.sceneRef.effects.playerSpeedMulti
         this.slashEffect.cleanup()
       },
     )

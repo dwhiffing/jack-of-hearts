@@ -21,7 +21,7 @@ export const ENEMY_STATS: Record<string, EnemyStats> = {
   imp: {
     key: 'imp',
     attackType: ENEMY_ATTACK_TYPES['slash'],
-    health: 3,
+    health: 1,
     speed: 80,
     collideDamage: 1,
     stunDuration: 1000,

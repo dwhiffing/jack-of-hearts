@@ -8,6 +8,7 @@ import { CoreStats, Effects } from '../types'
 import { EnemySpawner } from '../entities/EnemySpawner'
 import { Emitter } from '../entities/Emitter'
 import { CoreSpawner } from '../entities/CoreSpawner'
+import { getEffectValue } from '../utils'
 
 export class Game extends Scene {
   public player!: Player
@@ -40,6 +41,7 @@ export class Game extends Scene {
     })
     this.coreSpawner = new CoreSpawner(this)
     this.coreSpawner.spawn(PRIMARY_CORE, w / 2, h / 2, true)
+    this.updateEffects()
 
     this.enemies = this.physics.add.group({
       classType: Enemy,
@@ -47,8 +49,6 @@ export class Game extends Scene {
     })
     this.enemySpawner = new EnemySpawner(this)
     this.enemySpawner.nextWave()
-
-    this.data.set('effects', effects)
 
     this.waveIndex = 0
     this.inShop = false
@@ -65,9 +65,10 @@ export class Game extends Scene {
     this.physics.add.collider(this.enemies, this.enemies)
     this.cameras.main.fadeFrom(CAMERA_FADE, 0, 0, 0)
     this.game.events.on('start-level', this.enemySpawner.nextLevel)
-    this.game.events.on('spawn-core', (stats: CoreStats) =>
-      this.coreSpawner.spawn(stats),
-    )
+    this.game.events.on('spawn-core', (stats: CoreStats) => {
+      this.coreSpawner.spawn(stats)
+      this.updateEffects()
+    })
   }
 
   update(_time: number, _delta: number): void {
@@ -98,5 +99,28 @@ export class Game extends Scene {
 
   setEffect = (key: keyof Effects, value: number) => {
     this.data.set('effects', { ...this.effects, [key]: value })
+  }
+
+  updateEffects = () => {
+    this.data.set('effects', { ...effects })
+    const cores = this.cores.getChildren() as Core[]
+
+    cores.forEach((core) => {
+      if (
+        core.stats.left.effect === 'primary' ||
+        core.stats.right.effect === 'primary'
+      )
+        return
+      const currentValueLeft = this.effects[core.stats.left.effect]
+      const currentValueRight = this.effects[core.stats.right.effect]
+      this.setEffect(
+        core.stats.left.effect,
+        currentValueLeft + getEffectValue(core.stats.left, 'good'),
+      )
+      this.setEffect(
+        core.stats.right.effect,
+        currentValueRight + getEffectValue(core.stats.right, 'bad'),
+      )
+    })
   }
 }

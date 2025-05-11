@@ -22,15 +22,15 @@ export type Effects = {
   enemySpeedMulti: number
   enemyDamageMulti: number
   enemyCount: number
-  playerAttackSize: number
-  playerAttackRate: number
-  playerSpeed: number
+  playerAttackSizeMulti: number
+  playerAttackRateMulti: number
+  playerSpeedMulti: number
   playerDamage: number
   playerDamageMulti: number
-  playerDashCooldown: number
-  playerDashDist: number
+  playerDashCooldownMulti: number
+  playerDashDistMulti: number
   playerStunRecovery: number
-  playerAttackStunDuration: number
+  playerAttackStunDurationMulti: number
 }
 
 export type EnemyType = {
@@ -43,7 +43,8 @@ export type EnemyType = {
   offsetShadow: number
 }
 export type CoreHalfStat = {
-  color: number
+  effect: keyof Effects | 'primary'
+  rarity: number
 }
 export type CoreStats = {
   left: CoreHalfStat

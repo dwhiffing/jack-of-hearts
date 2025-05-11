@@ -2,11 +2,13 @@ import { CoreStats } from '../types'
 import { Game } from '../scenes/Game'
 import { Enemy } from './Enemy'
 import { EntityBase } from './EntityBase'
+import { getEffectColor } from '../utils'
 
 export class Core extends EntityBase {
   isPrimary: boolean
   leftHalf: Phaser.GameObjects.Sprite
   rightHalf: Phaser.GameObjects.Sprite
+  stats: CoreStats
   constructor(scene: Game, x: number, y: number) {
     super(scene, x, y, 'ui_heart_empty.png')
 
@@ -26,8 +28,9 @@ export class Core extends EntityBase {
     this.setMaxHealth(50)
     this.setDamping(true).setCollideWorldBounds(true).setDrag(0.01, 0.01)
     this.setPosition(x, y)
-    this.leftHalf.setTint(stats.left.color)
-    this.rightHalf.setTint(stats.right.color)
+    this.stats = stats
+    this.leftHalf.setTint(getEffectColor(stats.left))
+    this.rightHalf.setTint(getEffectColor(stats.right))
   }
 
   public setPosition(x: number, y: number) {

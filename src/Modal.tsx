@@ -15,17 +15,17 @@ export const Modal = ({
       onClick={onClose}
     >
       <div
-        className={`bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg min-h-[200px] flex h-full max-h-[400px] opacity-0 transition-opacity duration-700 ${
+        className={`bg-[#444] rounded-xl p-6 max-w-lg w-full relative shadow-lg flex h-full max-h-[600px] opacity-0 transition-opacity duration-700 ${
           !isOpen ? 'pointer-events-none' : 'opacity-100 pointer-events-auto'
         }`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
+        {/* <button
           className="absolute top-3 right-4 text-gray-500 hover:text-black text-xl"
           onClick={onClose}
         >
           &times;
-        </button>
+        </button> */}
         {children}
       </div>
     </div>

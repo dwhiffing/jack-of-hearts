@@ -105,7 +105,7 @@ export class Enemy extends EntityBase {
 
     this.moveMulti = 0
     this.sceneRef.time.delayedCall(
-      350 * this.sceneRef.effects.playerAttackStunDuration,
+      350 * this.sceneRef.effects.playerAttackStunDurationMulti,
       () => (this.moveMulti = 1),
     )
     this.play(`${this.type}-stop`)
