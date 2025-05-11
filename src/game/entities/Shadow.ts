@@ -22,7 +22,7 @@ export class Shadow extends Phaser.GameObjects.Graphics {
 
   public draw(): void {
     this.clear()
-    this.fillStyle(this.fillColor, 0.2)
+    this.fillStyle(this.fillColor, 0.5)
     this.fillEllipse(0, 0, this._width / 1, this._height / 1)
   }
 

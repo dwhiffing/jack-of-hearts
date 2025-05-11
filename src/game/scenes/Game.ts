@@ -9,6 +9,7 @@ import { EnemySpawner } from '../entities/EnemySpawner'
 import { Emitter } from '../entities/Emitter'
 import { CoreSpawner } from '../entities/CoreSpawner'
 import { getEffectValue } from '../utils'
+import { Floor } from '../entities/Floor'
 
 export class Game extends Scene {
   public player!: Player
@@ -16,6 +17,7 @@ export class Game extends Scene {
   public enemySpawner!: EnemySpawner
   public coreSpawner!: CoreSpawner
   public emitter!: Emitter
+  public floor!: Floor
   public cores!: Physics.Arcade.Group
   public enemies!: Physics.Arcade.Group
   public camera!: Cameras.Scene2D.Camera
@@ -33,6 +35,7 @@ export class Game extends Scene {
     const { width: w, height: h } = this.camera
 
     this.isGameOver = false
+    this.floor = new Floor(this)
     this.player = new Player(this, w / 2, h / 2 + 120)
 
     this.cores = this.physics.add.group({

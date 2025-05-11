@@ -10,10 +10,12 @@ export class Emitter {
       .particles(0, 0, 'sheet', {
         x: 0,
         y: 0,
-        lifespan: 400,
+        lifespan: { min: 400, max: 500 },
         speed: 120,
-        frame: 'ui_heart_full.png',
+        frame: 'particle.png',
         alpha: { start: 1, end: 0 },
+        scale: 2,
+        tint: 0x00ff00,
         angle: { start: 0, end: 360, steps: 10 },
       })
       .stop()

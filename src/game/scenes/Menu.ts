@@ -1,5 +1,6 @@
 import { Scene, GameObjects } from 'phaser'
 import { CAMERA_FADE } from '../constants'
+import { Floor } from '../entities/Floor'
 
 export class Menu extends Scene {
   background: GameObjects.Image
@@ -12,6 +13,7 @@ export class Menu extends Scene {
 
   create() {
     const { width, height } = this.cameras.main
+    new Floor(this)
     this.title = this.add
       .text(width / 2, height * 0.75, 'Press Z to Start', {
         fontSize: 24,
