@@ -8,7 +8,7 @@ const config: Phaser.Types.Core.GameConfig = {
   width: 800,
   height: 600,
   parent: 'game-container',
-  backgroundColor: '#028af8',
+  backgroundColor: '#293031',
   physics: { default: 'arcade', arcade: { debug: false } },
   pixelArt: true,
   scene: [Boot, Menu, MainGame],
