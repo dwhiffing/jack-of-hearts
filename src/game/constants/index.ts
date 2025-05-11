@@ -78,72 +78,72 @@ export const effectStats: Record<
   primary: {
     label: 'Primary',
     color: COLORS[0],
-    ranges: { good: [0, 0], bad: [0, 0] },
+    ranges: { good: [0, 0, 0], bad: [0, 0, 0] },
   },
   enemyHealthMulti: {
     label: 'Enemy Health',
     color: COLORS[1],
-    ranges: { good: [-0.1, -0.5], bad: [0.1, 0.5] },
+    ranges: { good: [-0.1, -0.2, -0.3], bad: [0.1, 0.2, 0.3] },
   },
   enemySpeedMulti: {
     label: 'Enemy Speed',
     color: COLORS[2],
-    ranges: { good: [-0.1, -0.5], bad: [0.1, 0.5] },
+    ranges: { good: [-0.1, -0.2, -0.3], bad: [0.1, 0.2, 0.3] },
   },
   enemyDamageMulti: {
     label: 'Enemy Damage',
     color: COLORS[3],
-    ranges: { good: [-0.1, -0.5], bad: [0.1, 0.5] },
+    ranges: { good: [-0.1, -0.2, -0.3], bad: [0.1, 0.2, 0.3] },
   },
   enemyCount: {
     label: 'Enemy Count',
     color: COLORS[4],
-    ranges: { good: [-1, -5], bad: [1, 5] },
+    ranges: { good: [-1, -2, -3], bad: [1, 2, 3] },
   },
   playerAttackSizeMulti: {
     label: 'Attack Size',
     color: COLORS[5],
-    ranges: { good: [0.1, 0.5], bad: [-0.1, -0.5] },
+    ranges: { good: [0.1, 0.2, 0.3], bad: [-0.1, -0.2, -0.3] },
   },
   playerAttackStunDurationMulti: {
     label: 'Attack Stun',
     color: COLORS[6],
-    ranges: { good: [0.1, 0.5], bad: [-0.1, -0.5] },
+    ranges: { good: [0.1, 0.2, 0.3], bad: [-0.1, -0.2, -0.3] },
   },
   playerAttackRateMulti: {
     label: 'Attack Speed',
     color: COLORS[7],
-    ranges: { good: [-0.1, -0.5], bad: [0.1, 0.5] },
+    ranges: { good: [-0.1, -0.2, -0.3], bad: [0.1, 0.2, 0.3] },
   },
   playerSpeedMulti: {
     label: 'Movement Speed',
     color: COLORS[8],
-    ranges: { good: [0.1, 0.5], bad: [-0.1, -0.5] },
+    ranges: { good: [0.1, 0.2, 0.3], bad: [-0.1, -0.2, -0.3] },
   },
   playerDamage: {
     label: 'Damage Base',
     color: COLORS[9],
-    ranges: { good: [1, 5], bad: [-1, -5] },
+    ranges: { good: [1, 2, 3], bad: [-1, -2, -3] },
   },
   playerDamageMulti: {
     label: 'Damage Multi',
     color: COLORS[10],
-    ranges: { good: [0.1, 0.5], bad: [-0.1, -0.5] },
+    ranges: { good: [0.1, 0.2, 0.3], bad: [-0.1, -0.2, -0.3] },
   },
   playerDashCooldownMulti: {
     label: 'Dash Cooldown',
     color: COLORS[11],
-    ranges: { good: [-0.1, -0.5], bad: [0.1, 0.5] },
+    ranges: { good: [-0.1, -0.2, -0.3], bad: [0.1, 0.2, 0.3] },
   },
   playerDashDistMulti: {
     label: 'Dash Distance',
     color: COLORS[12],
-    ranges: { good: [0.1, 0.5], bad: [-0.1, -0.5] },
+    ranges: { good: [0.1, 0.2, 0.3], bad: [-0.1, -0.2, -0.3] },
   },
   playerStunRecovery: {
     label: 'Stun Recovery',
     color: COLORS[13],
-    ranges: { good: [0.1, 0.5], bad: [-0.1, -0.5] },
+    ranges: { good: [0.1, 0.2, 0.3], bad: [-0.1, -0.2, -0.3] },
   },
 }
 

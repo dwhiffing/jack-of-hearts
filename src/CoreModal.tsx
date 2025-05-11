@@ -118,14 +118,18 @@ const CoreImage = (props: { core: CoreStats }) => {
 }
 
 const CoreHalf = (props: { half: CoreHalfStat; type: 'good' | 'bad' }) => {
+  const value = getEffectValue(props.half, props.type)
+
+  const isInt = value % 1 === 0
+  const percentage = `${value > 0 ? '+' : ''}${value * 100}%`
+  const int = `${value > 0 ? '+' : ''}${value}`
   return (
     <div
       className="text-center"
       style={{ color: props.type === 'good' ? '#00ff00' : '#ff0000' }}
     >
       <p className="w-32 font-bold">{effectStats[props.half.effect].label}: </p>
-      <p>{getEffectValue(props.half, props.type).toFixed(2)}</p>
-      {/* <p>{props.half.rarity.toFixed(2)}</p> */}
+      <p>{isInt ? int : percentage}</p>
     </div>
   )
 }

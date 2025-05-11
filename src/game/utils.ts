@@ -34,10 +34,7 @@ export const getEffectValue = (
   coreHalf: CoreHalfStat,
   type: 'good' | 'bad',
 ) => {
-  const [min, max] = effectStats[coreHalf.effect].ranges[type]
-  const perc = coreHalf.rarity / MAX_RARITY
-
-  return lerp(min, max, perc)
+  return effectStats[coreHalf.effect].ranges[type][coreHalf.rarity]
 }
 
 export const getEffectColor = (coreHalf: CoreHalfStat) => {
@@ -49,8 +46,7 @@ export function lerp(start: number, end: number, amount: number): number {
 }
 
 export const getRarity = () =>
-  Phaser.Math.RND?.weightedPick([1, 1, 1, 1, 2, 2, 2, 3, 3, 4]) +
-  Phaser.Math.RND?.realInRange(0, 1)
+  Phaser.Math.RND?.weightedPick([0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2]) + 0
 
 export const rollCores = () => {
   const _effects =
@@ -61,6 +57,7 @@ export const rollCores = () => {
   const rarity1 = getRarity()
   const rarity2 = getRarity()
   const rarity3 = getRarity()
+
   const core1 = {
     left: { effect: _effects[0], rarity: rarity1 },
     right: { effect: _effects[3], rarity: rarity1 },
