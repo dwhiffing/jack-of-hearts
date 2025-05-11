@@ -22,6 +22,7 @@ export class Player extends Physics.Arcade.Sprite {
   private keyD: Input.Keyboard.Key
   private attackKey: Input.Keyboard.Key
   private dashKey: Input.Keyboard.Key
+  private pickupKey: Input.Keyboard.Key
   private isDashing: boolean = false
   private isStunned: boolean = false
   private canDash: boolean = true
@@ -56,6 +57,7 @@ export class Player extends Physics.Arcade.Sprite {
     this.keyD = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT)
     this.attackKey = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.Z)
     this.dashKey = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.X)
+    this.pickupKey = scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.C)
   }
 
   public update(enemies: Enemy[]): void {
@@ -112,6 +114,7 @@ export class Player extends Physics.Arcade.Sprite {
 
     this.handleWASDMovement()
     this.handleAttack(enemies)
+    this.handlePickup()
   }
 
   private startDash(): void {
@@ -191,33 +194,6 @@ export class Player extends Physics.Arcade.Sprite {
       return
     }
 
-    if (!this.carriedCore) {
-      const cores = this.sceneRef.cores.getChildren() as Core[]
-      cores.forEach((core) => {
-        if (
-          !this.carriedCore &&
-          core &&
-          PhaserMath.Distance.BetweenPoints(this, core) < 35
-        ) {
-          this.carriedCore = core
-          this.carriedCore.shadow.setAlpha(0)
-          return
-        }
-      })
-      if (this.carriedCore) {
-        this.sceneRef.playSound('pickup-item', { volume: 0.7 })
-        return
-      }
-    }
-
-    if (this.carriedCore) {
-      this.carriedCore.setPosition(this.x, this.y)
-      this.carriedCore.shadow.setAlpha(1)
-      this.carriedCore = undefined
-      this.sceneRef.playSound('drop-item', { volume: 0.7 })
-      return
-    }
-
     this.sceneRef.playSound('player-attack', { volume: 0.7 })
 
     this._canAttack = false
@@ -263,6 +239,43 @@ export class Player extends Physics.Arcade.Sprite {
         this.slashEffect.cleanup()
       },
     )
+  }
+
+  private handlePickup(): void {
+    if (
+      !Input.Keyboard.JustDown(this.pickupKey) ||
+      !this._canAttack ||
+      this.isDashing
+    ) {
+      return
+    }
+
+    if (!this.carriedCore) {
+      const cores = this.sceneRef.cores.getChildren() as Core[]
+      cores.forEach((core) => {
+        if (
+          !this.carriedCore &&
+          core &&
+          PhaserMath.Distance.BetweenPoints(this, core) < 35
+        ) {
+          this.carriedCore = core
+          this.carriedCore.shadow.setAlpha(0)
+          return
+        }
+      })
+      if (this.carriedCore) {
+        this.sceneRef.playSound('pickup-item', { volume: 0.7 })
+        return
+      }
+    }
+
+    if (this.carriedCore) {
+      this.carriedCore.setPosition(this.x, this.y)
+      this.carriedCore.shadow.setAlpha(1)
+      this.carriedCore = undefined
+      this.sceneRef.playSound('drop-item', { volume: 0.7 })
+      return
+    }
   }
 
   get stats() {
